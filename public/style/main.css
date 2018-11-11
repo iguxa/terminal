@@ -1,0 +1,19 @@
+
+.custom{
+    background-color: gainsboro;
+    size: 20px;
+    font-size: 30px;
+}
+.custom_litle{
+    font-size: 1rem;
+}
+.status{
+    border: 1px solid;
+}
+.status span{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.img{
+    padding: 1%;
+}
