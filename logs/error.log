@@ -7613,3 +7613,30 @@ PHP message: PHP   4. call_user_func_array:{/var/www/terminal/App/Router.php:67}
 PHP message: PHP   5. Controllers\AdminController->actionOpen() /var/www/terminal/App/Router.php:67
 PHP message: PHP   6. Controllers\AdminController->render() /var/www/terminal/Controllers/AdminController.php:26
 PHP message: PHP   7. require() /var/www/terminal/App/Controller.php:36" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "GET /admin/open/110 HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru", referrer: "http://terminal.ru/admin/"
+2018/11/12 00:49:09 [error] 11309#11309: *4127 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /admin_form HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock", host: "terminal.ru", referrer: "http://terminal.ru/admin_form"
+2018/11/12 01:00:10 [error] 11309#11309: *4141 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected ')' in /var/www/terminal/Controllers/AdminController.php on line 33" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /admin_form HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru", referrer: "http://terminal.ru/admin/open/112"
+2018/11/12 01:00:16 [error] 11309#11309: *4141 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected ')' in /var/www/terminal/Controllers/AdminController.php on line 33" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /admin_form HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru", referrer: "http://terminal.ru/admin_form"
+2018/11/12 01:01:33 [error] 11309#11309: *4141 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /admin_form HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock", host: "terminal.ru", referrer: "http://terminal.ru/admin_form"
+2018/11/12 01:15:50 [error] 11309#11309: *4186 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /admin_form HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock", host: "terminal.ru", referrer: "http://terminal.ru/admin/open/112"
+2018/11/12 01:28:37 [error] 11309#11309: *4192 FastCGI sent in stderr: "PHP message: PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /var/www/terminal/App/Db.php on line 40
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/terminal/public/index.php:0
+PHP message: PHP   2. App\Router->run() /var/www/terminal/public/index.php:16
+PHP message: PHP   3. App\Router->try_it() /var/www/terminal/App/Router.php:33
+PHP message: PHP   4. call_user_func_array:{/var/www/terminal/App/Router.php:67}() /var/www/terminal/App/Router.php:67
+PHP message: PHP   5. Controllers\AdminController->actionAdmin_form() /var/www/terminal/App/Router.php:67
+PHP message: PHP   6. Models\Orders_Model->ChangeOrderById() /var/www/terminal/Controllers/AdminController.php:38
+PHP message: PHP   7. Models\Orders_Model->Execute() /var/www/terminal/Models/Orders_Model.php:88
+PHP message: PHP   8. PDOStatement->execute() /var/www/terminal/App/Db.php:40
+PHP message: PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /var/www/terminal/App/Db.php on line 42
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/terminal/public/index.php:0
+PHP message: PHP   2. App\Router->run() /var/www/terminal/public/index.php:16
+PHP message: PHP   3. App\Router->try_it() /var/www/terminal/App/Router.php:33
+PHP message: PHP   4. call_user_func_array:{/var/www/terminal/App/Router.php:67}() /var/www/terminal/App/Router.php:67
+PHP message: PHP   5. Controllers\AdminController->actionAdmin_form() /var/www/terminal/App/Router.php:67
+PHP message: PHP   6. Models\Orders_Model->ChangeOrderById() /var/www/terminal/Controllers/AdminController.php:38
+PHP message: PHP   7. Models\Orders_Model->Execute() /var/www/terminal/Models/Orders_Model.php:88
+PHP message: PHP   8. PDOStatement->execute() /var/www/terminal/App/Db.php:42" while reading response header from upstrea
+2018/11/12 01:33:02 [error] 11309#11309: *4202 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /admin_form HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock", host: "terminal.ru", referrer: "http://terminal.ru/admin/open/109"
+2018/11/12 01:46:29 [error] 11309#11309: *4234 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "GET /admin/open/109 HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock", host: "terminal.ru", referrer: "http://terminal.ru/admin/open/109"

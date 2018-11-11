@@ -1,9 +1,6 @@
-<?php
-$test = 1;
-?>
 <div class="d-flex justify-content-center">
 <div class="d-flex flex-column w-75">
-    <form action="/image" method="post" enctype="multipart/form-data">
+    <form action="<?=$params['form_action']?>" method="post" enctype="multipart/form-data">
         <div class="custom text-center"> <p>Запрос <?=$params['order']['id']?></p></div>
         <!--<div class="form-group">
             <label for="exampleFormControlInput1">Email address</label>
@@ -46,42 +43,43 @@ $test = 1;
             <?php endforeach;?>
             <?php endif ?>
         <input type="text" name="bot_check" class="d-none" value="">
+        <input type="hidden" name="orders_id" class="d-none" value="<?=$params['order']['id']?>">
         <div class="custom text-center"> <p>Ответ менеджера</p></div>
         <div class="form-group">
             <label for="exampleFormControlSelect1">Выберите статус</label>
-            <select class="form-control" id="exampleFormControlSelect1" data-categorie="categories" name = 'status'>
+            <select class="form-control" id="exampleFormControlSelect1" data-categorie="categories" required name = 'status_id'>
+                <option></option>
                 <?php foreach ($params['option_status'] as $option_status ):?>
-                <option value="<?=$categories['id']?>"><?=$categories['categories']?></optionname>
+                <option value="<?=$option_status['id']?>"><?=$option_status['status']?></option>
                 <?php endforeach; ?>
             </select>
         </div>
         <div class="custom_litle">
             <div class="status">Статус: <span><?=$params['order']['status']?></span></div>
-            <div class="status_info">Трейд-ин: <span>0</span></div>
-            <div class="status_info">Наличка: <span>0</span></div>
-            <div class="status">Комментарий</div>
-            <div class="comment">Хз</div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Трейд-ин</label>
+                <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Трейд-ин" name='sum1'>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Наличка</label>
+                <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Наличка" name='sum2'>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Комментарий</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Комментарий" name='comments'></textarea>
+            </div>
         </div>
         <div class="custom text-center"> <p>Проверка</p></div>
         <div class="custom_litle">
-            <div class="status">Запрос на проверку </div>
-            <div class="check">Нет</div>
-            <div class="status_info">Результат проверки товара (неверная информация приводит к штрафу)</div>
-            <div class="info">
-                какая то проверка
-            </div>
-            <div class="status_info">Комментарий</div>
-            <div class="info">
-                какая то проверка
-            </div>
-            <div class="bad">
-                <div class="status">Ответственный: <span>Дмитрий Иванов</span></div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Запрос на проверку</label>
+                <select class="form-control" id="exampleFormControlSelect1" data-categorie="categories" name = 'check' required>
+                    <option></option>
+                    <option value="0">Нет</option>
+                    <option value="1">Да</option>
+                </select>
             </div>
         </div>
-        <div class="custom text-center">Результат </div>
-        <div class="status_info">Трейд-ин: <span>0</span></div>
-        <div class="status_info">Наличка: <span>0</span></div>
-
         <input type="submit" class="btn btn-success waves-effect">
     </form>
 </div>

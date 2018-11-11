@@ -12,6 +12,8 @@ class Controller
     use HelperTrait;
 
     public $layoutFile = '../Views/bootstrap.php';
+    public $errors_view = '../Views/errors_view.php';
+    public $errors_list;
 
     public function __construct($layoutFile = null)
     {
@@ -33,6 +35,9 @@ class Controller
         $viewFile = '..'.DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.$viewName.'.php';
         extract($params);
         ob_start();
+        if($this->errors_list){
+            require $this->errors_view;
+        }
         require $viewFile;
         $body = ob_get_clean();
         ob_end_clean();

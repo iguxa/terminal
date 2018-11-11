@@ -53,7 +53,7 @@ class Orders_Model extends Db
     }
     public function getOrderById($id)
     {
-        $sql = "SELECT orders.id,orders.date,orders.discount,orders.item,orders.description,orders.sum1,orders.sum2,status.status,categories.categories FROM terminal.orders
+        $sql = "SELECT orders.*,status.status,categories.categories FROM terminal.orders
                 JOIN status on orders.status_id=status.id
                 JOIN categories on orders.categories_id=categories.id 
                 where orders.id = :id ";
@@ -69,5 +69,21 @@ class Orders_Model extends Db
         $data['orders_images'] = $oreders_images;
         $data['option_status'] = $option_status;
         return $data;
+    }
+    public function ChangeOrderById($request)
+    {
+        $sql = "UPDATE $this->db_name.$this->tb_name SET status_id = :status_id,sum1 = :sum1,sum2 = :sum2,comments=:comments,`check`=:check WHERE id = :orders_id";
+
+
+
+        $params = array(
+            'status_id' => $request['status_id'],
+            'check' => $request['check'],
+            'comments' => $request['comments'],
+            'sum1' => $request['sum1'],
+            'sum2' => $request['sum2'],
+            'orders_id' => $request['orders_id'],
+        );
+        return $this->Execute($sql,$params);
     }
 }
