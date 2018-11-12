@@ -44,6 +44,7 @@
             <?php endif ?>
         <input type="text" name="bot_check" class="d-none" value="">
         <input type="hidden" name="orders_id" class="d-none" value="<?=$params['order']['id']?>">
+        <input type="hidden" name="users_id" class="d-none" value="2">
         <div class="custom text-center"> <p>Ответ менеджера</p></div>
         <div class="form-group">
             <label for="exampleFormControlSelect1">Выберите статус</label>
@@ -66,7 +67,7 @@
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Комментарий</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Комментарий" name='comments'></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Комментарий" name='messages'></textarea>
             </div>
         </div>
         <div class="custom text-center"> <p>Проверка</p></div>

@@ -7,5 +7,6 @@
  */
 return array(
     'images_params',
-    'db_params'
+    'db_params',
+    'trigger'
 );

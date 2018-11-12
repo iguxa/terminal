@@ -8,7 +8,7 @@
 
 namespace Controllers;
 use App\{Confing, Controller, Exeption, UploadImage};
-use Models\{Categories_Model,Orders_Model};
+use Models\{Categories_Model, Orders_Model, Status_Model, Users_Models};
 
 class DefaultController extends Controller
 {
@@ -18,7 +18,11 @@ class DefaultController extends Controller
             return Exeption::getInstance()->error404();
         };
         $categories = Categories_Model::getInstance()->getCategories();
+        $users = Users_Models::getInstance()->getUsers();
+        $status = Status_Model::getInstance()->GetStatusList();
         $params['categories'] = $categories;
+        $params['users'] = $users;
+        $params['status'] = $status;
         $this->layoutFile=('../Views/bootstrap.php');
         return $this->render('form',$params);
     }
@@ -37,7 +41,7 @@ class DefaultController extends Controller
         }else{
             return Exeption::getInstance()->error404($uploaded['uploaded_files']);
         }
-        Orders_Model::getInstance()->createOrder($request);
+        Orders_Model::getInstance($request)->createOrder();
 
     }
     public function actionImage_show()

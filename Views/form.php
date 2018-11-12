@@ -10,7 +10,7 @@
             <label for="exampleFormControlSelect1">Выберите категорию</label>
             <select class="form-control" id="exampleFormControlSelect1" data-categorie="categories" name = 'categories_id'>
                 <?php foreach ($params['categories'] as $categories ):?>
-                    <option value="<?=$categories['id']?>"><?=$categories['categories']?></optionname>
+                    <option value="<?=$categories['id']?>"><?=$categories['categories']?></option>
                 <?php endforeach; ?>
             </select>
         </div>
@@ -53,7 +53,24 @@
         <input type="text" name="bot_check" class="d-none" value="">
         <div class="custom text-center"> <p>Ответ</p></div>
         <div class="custom_litle">
-            <div class="status">Статус: <span>Ожидаем</span></div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Выберите статус</label>
+                <select class="form-control" id="exampleFormControlSelect1" data-categorie="categories" required name = 'status_id'>
+                    <option></option>
+                    <?php foreach ($params['status'] as $option_status ):?>
+                        <option value="<?=$option_status['id']?>"><?=$option_status['status']?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Перевести</label>
+                <select class="form-control" id="exampleFormControlSelect1" data-categorie="categories" required name = 'users_id'>
+                    <option></option>
+                    <?php foreach ($params['users'] as $users ):?>
+                        <option value="<?=$users['id']?>"><?=$users['users']?> - <?= $users['position']?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
             <div class="status_info">Трейд-ин: <span>0</span></div>
             <div class="status_info">Наличка: <span>0</span></div>
             <div class="status">Комментарий</div>

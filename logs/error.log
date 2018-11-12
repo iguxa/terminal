@@ -7640,3 +7640,549 @@ PHP message: PHP   7. Models\Orders_Model->Execute() /var/www/terminal/Models/Or
 PHP message: PHP   8. PDOStatement->execute() /var/www/terminal/App/Db.php:42" while reading response header from upstrea
 2018/11/12 01:33:02 [error] 11309#11309: *4202 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /admin_form HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock", host: "terminal.ru", referrer: "http://terminal.ru/admin/open/109"
 2018/11/12 01:46:29 [error] 11309#11309: *4234 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "GET /admin/open/109 HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock", host: "terminal.ru", referrer: "http://terminal.ru/admin/open/109"
+2018/11/12 22:44:00 [error] 11309#11309: *4254 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function errorInfo() on null in /var/www/terminal/Models/Orders_Model.php:79
+Stack trace:
+#0 /var/www/terminal/Controllers/AdminController.php(38): Models\Orders_Model->ChangeOrderById(Array)
+#1 [internal function]: Controllers\AdminController->actionAdmin_form()
+#2 /var/www/terminal/App/Router.php(67): call_user_func_array(Array, Array)
+#3 /var/www/terminal/App/Router.php(33): App\Router->try_it('admin_form', 'admin/admin_for...', 'admin_form')
+#4 /var/www/terminal/public/index.php(16): App\Router->run()
+#5 {main}
+  thrown in /var/www/terminal/Models/Orders_Model.php on line 79" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /admin_form HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru", referrer: "http://terminal.ru/admin/open/112"
+2018/11/12 23:36:48 [error] 11309#11309: *4301 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to undefined method Models\Categories_Model::GetStatusList() in /var/www/terminal/Controllers/DefaultController.php:22
+Stack trace:
+#0 [internal function]: Controllers\DefaultController->actionIndex('')
+#1 /var/www/terminal/App/Router.php(67): call_user_func_array(Array, Array)
+#2 /var/www/terminal/App/Router.php(33): App\Router->try_it('', 'default/index/', '')
+#3 /var/www/terminal/public/index.php(16): App\Router->run()
+#4 {main}
+  thrown in /var/www/terminal/Controllers/DefaultController.php on line 22" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru"
+2018/11/12 23:37:47 [error] 11309#11309: *4301 FastCGI sent in stderr: "PHP message: PHP Notice:  Undefined variable: status in /var/www/terminal/Controllers/DefaultController.php on line 25
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/terminal/public/index.php:0
+PHP message: PHP   2. App\Router->run() /var/www/terminal/public/index.php:16
+PHP message: PHP   3. App\Router->try_it() /var/www/terminal/App/Router.php:33
+PHP message: PHP   4. call_user_func_array:{/var/www/terminal/App/Router.php:67}() /var/www/terminal/App/Router.php:67
+PHP message: PHP   5. Controllers\DefaultController->actionIndex() /var/www/terminal/App/Router.php:67
+PHP message: PHP Notice:  Undefined index: option_status in /var/www/terminal/Views/form.php on line 60
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/terminal/public/index.php:0
+PHP message: PHP   2. App\Router->run() /var/www/terminal/public/index.php:16
+PHP message: PHP   3. App\Router->try_it() /var/www/terminal/App/Router.php:33
+PHP message: PHP   4. call_user_func_array:{/var/www/terminal/App/Router.php:67}() /var/www/terminal/App/Router.php:67
+PHP message: PHP   5. Controllers\DefaultController->actionIndex() /var/www/terminal/App/Router.php:67
+PHP message: PHP   6. Controllers\DefaultController->render() /var/www/terminal/Controllers/DefaultController.php:27
+PHP message: PHP   7. require() /var/www/terminal/App/Controller.php:41
+PHP message: PHP Warning:  Invalid argument supplied for foreach() in /var/www/terminal/Views/form.php on line 60
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/terminal/public/index.php:0
+PHP message: PHP   2. App\Router->run() /var/www/terminal/public/index.php:16
+PHP message: PHP   3. App\Router->try_it() /var/www/terminal/App/Router.php:33
+PHP message: PHP   4. call_user_func_array:{/var/www/terminal/App/Router.php:67}() /var/www/terminal/App/Router.php:67
+PHP message: PHP   5. Controllers\DefaultController->actionIndex() /var/www/terminal/App/Router.php:67
+PHP message: PHP  
+2018/11/12 23:38:15 [error] 11309#11309: *4301 FastCGI sent in stderr: "PHP message: PHP Notice:  Undefined index: option_status in /var/www/terminal/Views/form.php on line 60
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/terminal/public/index.php:0
+PHP message: PHP   2. App\Router->run() /var/www/terminal/public/index.php:16
+PHP message: PHP   3. App\Router->try_it() /var/www/terminal/App/Router.php:33
+PHP message: PHP   4. call_user_func_array:{/var/www/terminal/App/Router.php:67}() /var/www/terminal/App/Router.php:67
+PHP message: PHP   5. Controllers\DefaultController->actionIndex() /var/www/terminal/App/Router.php:67
+PHP message: PHP   6. Controllers\DefaultController->render() /var/www/terminal/Controllers/DefaultController.php:27
+PHP message: PHP   7. require() /var/www/terminal/App/Controller.php:41
+PHP message: PHP Warning:  Invalid argument supplied for foreach() in /var/www/terminal/Views/form.php on line 60
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/terminal/public/index.php:0
+PHP message: PHP   2. App\Router->run() /var/www/terminal/public/index.php:16
+PHP message: PHP   3. App\Router->try_it() /var/www/terminal/App/Router.php:33
+PHP message: PHP   4. call_user_func_array:{/var/www/terminal/App/Router.php:67}() /var/www/terminal/App/Router.php:67
+PHP message: PHP   5. Controllers\DefaultController->actionIndex() /var/www/terminal/App/Router.php:67
+PHP message: PHP   6. Controllers\DefaultController->render() /var/www/terminal/Controllers/DefaultController.php:27
+PHP message: PHP   7. require() /var/www/terminal/App/Controller.php:41" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru"
+2018/11/12 23:38:28 [error] 11309#11309: *4301 FastCGI sent in stderr: "PHP message: PHP Notice:  Undefined index: option_status in /var/www/terminal/Views/form.php on line 60
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/terminal/public/index.php:0
+PHP message: PHP   2. App\Router->run() /var/www/terminal/public/index.php:16
+PHP message: PHP   3. App\Router->try_it() /var/www/terminal/App/Router.php:33
+PHP message: PHP   4. call_user_func_array:{/var/www/terminal/App/Router.php:67}() /var/www/terminal/App/Router.php:67
+PHP message: PHP   5. Controllers\DefaultController->actionIndex() /var/www/terminal/App/Router.php:67
+PHP message: PHP   6. Controllers\DefaultController->render() /var/www/terminal/Controllers/DefaultController.php:27
+PHP message: PHP   7. require() /var/www/terminal/App/Controller.php:41
+PHP message: PHP Warning:  Invalid argument supplied for foreach() in /var/www/terminal/Views/form.php on line 60
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/terminal/public/index.php:0
+PHP message: PHP   2. App\Router->run() /var/www/terminal/public/index.php:16
+PHP message: PHP   3. App\Router->try_it() /var/www/terminal/App/Router.php:33
+PHP message: PHP   4. call_user_func_array:{/var/www/terminal/App/Router.php:67}() /var/www/terminal/App/Router.php:67
+PHP message: PHP   5. Controllers\DefaultController->actionIndex() /var/www/terminal/App/Router.php:67
+PHP message: PHP   6. Controllers\DefaultController->render() /var/www/terminal/Controllers/DefaultController.php:27
+PHP message: PHP   7. require() /var/www/terminal/App/Controller.php:41" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru"
+2018/11/12 23:38:28 [error] 11309#11309: *4301 FastCGI sent in stderr: "PHP message: PHP Notice:  Undefined index: option_status in /var/www/terminal/Views/form.php on line 60
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/terminal/public/index.php:0
+PHP message: PHP   2. App\Router->run() /var/www/terminal/public/index.php:16
+PHP message: PHP   3. App\Router->try_it() /var/www/terminal/App/Router.php:33
+PHP message: PHP   4. call_user_func_array:{/var/www/terminal/App/Router.php:67}() /var/www/terminal/App/Router.php:67
+PHP message: PHP   5. Controllers\DefaultController->actionIndex() /var/www/terminal/App/Router.php:67
+PHP message: PHP   6. Controllers\DefaultController->render() /var/www/terminal/Controllers/DefaultController.php:27
+PHP message: PHP   7. require() /var/www/terminal/App/Controller.php:41
+PHP message: PHP Warning:  Invalid argument supplied for foreach() in /var/www/terminal/Views/form.php on line 60
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/terminal/public/index.php:0
+PHP message: PHP   2. App\Router->run() /var/www/terminal/public/index.php:16
+PHP message: PHP   3. App\Router->try_it() /var/www/terminal/App/Router.php:33
+PHP message: PHP   4. call_user_func_array:{/var/www/terminal/App/Router.php:67}() /var/www/terminal/App/Router.php:67
+PHP message: PHP   5. Controllers\DefaultController->actionIndex() /var/www/terminal/App/Router.php:67
+PHP message: PHP   6. Controllers\DefaultController->render() /var/www/terminal/Controllers/DefaultController.php:27
+PHP message: PHP   7. require() /var/www/terminal/App/Controller.php:41" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru"
+2018/11/12 23:39:57 [error] 11309#11309: *4301 FastCGI sent in stderr: "PHP message: PHP Notice:  Undefined index: users in /var/www/terminal/Views/form.php on line 70
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/terminal/public/index.php:0
+PHP message: PHP   2. App\Router->run() /var/www/terminal/public/index.php:16
+PHP message: PHP   3. App\Router->try_it() /var/www/terminal/App/Router.php:33
+PHP message: PHP   4. call_user_func_array:{/var/www/terminal/App/Router.php:67}() /var/www/terminal/App/Router.php:67
+PHP message: PHP   5. Controllers\DefaultController->actionIndex() /var/www/terminal/App/Router.php:67
+PHP message: PHP   6. Controllers\DefaultController->render() /var/www/terminal/Controllers/DefaultController.php:27
+PHP message: PHP   7. require() /var/www/terminal/App/Controller.php:41
+PHP message: PHP Notice:  Undefined index: users in /var/www/terminal/Views/form.php on line 70
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/terminal/public/index.php:0
+PHP message: PHP   2. App\Router->run() /var/www/terminal/public/index.php:16
+PHP message: PHP   3. App\Router->try_it() /var/www/terminal/App/Router.php:33
+PHP message: PHP   4. call_user_func_array:{/var/www/terminal/App/Router.php:67}() /var/www/terminal/App/Router.php:67
+PHP message: PHP   5. Controllers\DefaultController->actionIndex() /var/www/terminal/App/Router.php:67
+PHP message: PHP   6. Controllers\DefaultController->render() /var/www/terminal/Controllers/DefaultController.php:27
+PHP message: PHP   7. require() /var/www/terminal/App/Controller.php:41" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru"
+2018/11/13 01:06:10 [error] 11309#11309: *4321 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /var/www/terminal/App/Db.php:54
+Stack trace:
+#0 /var/www/terminal/Models/Categories_Model.php(18): App\Db->getPdo('SELECT * FROM ....')
+#1 /var/www/terminal/Controllers/DefaultController.php(20): Models\Categories_Model->getCategories()
+#2 [internal function]: Controllers\DefaultController->actionIndex('')
+#3 /var/www/terminal/App/Router.php(67): call_user_func_array(Array, Array)
+#4 /var/www/terminal/App/Router.php(33): App\Router->try_it('', 'default/index/', '')
+#5 /var/www/terminal/public/index.php(16): App\Router->run()
+#6 {main}
+  thrown in /var/www/terminal/App/Db.php on line 54" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru", referrer: "http://terminal.ru/"
+2018/11/13 01:09:05 [error] 11309#11309: *4324 FastCGI sent in stderr: "PHP message: PHP Warning:  Declaration of Models\Orders_Model::init($request) should be compatible with App\Db::init() in /var/www/terminal/Models/Orders_Model.php on line 12
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/terminal/public/index.php:0
+PHP message: PHP   2. App\Router->run() /var/www/terminal/public/index.php:16
+PHP message: PHP   3. App\Router->try_it() /var/www/terminal/App/Router.php:33
+PHP message: PHP   4. call_user_func_array:{/var/www/terminal/App/Router.php:67}() /var/www/terminal/App/Router.php:67
+PHP message: PHP   5. Controllers\DefaultController->actionImage() /var/www/terminal/App/Router.php:67
+PHP message: PHP   6. spl_autoload_call() /var/www/terminal/Controllers/DefaultController.php:44
+PHP message: PHP   7. Composer\Autoload\ClassLoader->loadClass() /var/www/terminal/Controllers/DefaultController.php:44
+PHP message: PHP   8. Composer\Autoload\includeFile() /var/www/terminal/vendor/composer/ClassLoader.php:322
+PHP message: PHP   9. include() /var/www/terminal/vendor/composer/ClassLoader.php:444
+PHP message: PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /var/www/terminal/App/Db.php:39
+Stack trace:
+#0 /var/www/terminal/Models/Orders_Model.php(51): App\Db->Execute('INSERT INTO .or...', Array)
+#1 /var/www/terminal/Controllers/DefaultController.php(44): Models\Orders_Model->createOrder()
+#2 [internal function]: Controllers\DefaultController->actionImage()
+#3 /var/www/terminal/App/Router.php(67): call_user_func_array(Array, Array)
+#4 /var/www/terminal/App/Router.php(33): App\Router->try_it('image', 'default/image', 'image')
+#5 /var/www/terminal/public/index.php(16): App\Router->run()
+#6 {main}
+  thrown in /var/www/terminal/App/Db.php on line 39" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /image HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru", referrer: "http://term
+2018/11/13 01:12:46 [error] 11309#11309: *4331 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /var/www/terminal/App/Db.php:39
+Stack trace:
+#0 /var/www/terminal/Models/Orders_Model.php(51): App\Db->Execute('INSERT INTO .or...', Array)
+#1 /var/www/terminal/Controllers/DefaultController.php(44): Models\Orders_Model->createOrder()
+#2 [internal function]: Controllers\DefaultController->actionImage()
+#3 /var/www/terminal/App/Router.php(67): call_user_func_array(Array, Array)
+#4 /var/www/terminal/App/Router.php(33): App\Router->try_it('image', 'default/image', 'image')
+#5 /var/www/terminal/public/index.php(16): App\Router->run()
+#6 {main}
+  thrown in /var/www/terminal/App/Db.php on line 39" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /image HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru", referrer: "http://terminal.ru/"
+2018/11/13 01:15:14 [error] 11309#11309: *4334 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /image HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock", host: "terminal.ru", referrer: "http://terminal.ru/image"
+2018/11/13 01:17:31 [error] 11309#11309: *4337 FastCGI sent in stderr: "PHP message: PHP Notice:  Undefined index: users_id in /var/www/terminal/Models/Orders_Model.php on line 42
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/terminal/public/index.php:0
+PHP message: PHP   2. App\Router->run() /var/www/terminal/public/index.php:16
+PHP message: PHP   3. App\Router->try_it($uriMiddle = *uninitialized*, $pathMiddle = *uninitialized*, $uri = *uninitialized*) /var/www/terminal/App/Router.php:33
+PHP message: PHP   4. call_user_func_array:{/var/www/terminal/App/Router.php:67}(*uninitialized*, *uninitialized*) /var/www/terminal/App/Router.php:67
+PHP message: PHP   5. Controllers\DefaultController->actionImage() /var/www/terminal/App/Router.php:67
+PHP message: PHP   6. Models\Orders_Model->createOrder() /var/www/terminal/Controllers/DefaultController.php:44
+PHP message: PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /var/www/terminal/App/Db.php:39
+Stack trace:
+#0 /var/www/terminal/Models/Orders_Model.php(51): App\Db->Execute('INSERT INTO .or...', Array)
+#1 /var/www/terminal/Controllers/DefaultController.php(44): Models\Orders_Model->createOrder()
+#2 [internal function]: Controllers\DefaultController->actionImage()
+#3 /var/www/terminal/App/Router.php(67): call_user_func_array(Array, Array)
+#4 /var/www/terminal/App/Router.php(33): App\Router->try_it('image', 'default/image', 'image')
+#5 /var/www/terminal/public/index.php(16): App\Router->run()
+#6 {main}
+  thrown in /var/www/terminal/App/Db.php on line 39" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /image HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru", referrer: "http://terminal.ru/image"
+2018/11/13 01:18:19 [error] 11309#11309: *4337 FastCGI sent in stderr: "PHP message: PHP Notice:  Undefined index: users_id in /var/www/terminal/Models/Orders_Model.php on line 42
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/terminal/public/index.php:0
+PHP message: PHP   2. App\Router->run() /var/www/terminal/public/index.php:16
+PHP message: PHP   3. App\Router->try_it($uriMiddle = *uninitialized*, $pathMiddle = *uninitialized*, $uri = *uninitialized*) /var/www/terminal/App/Router.php:33
+PHP message: PHP   4. call_user_func_array:{/var/www/terminal/App/Router.php:67}(*uninitialized*, *uninitialized*) /var/www/terminal/App/Router.php:67
+PHP message: PHP   5. Controllers\DefaultController->actionImage() /var/www/terminal/App/Router.php:67
+PHP message: PHP   6. Models\Orders_Model->createOrder() /var/www/terminal/Controllers/DefaultController.php:44
+PHP message: PHP Notice:  Undefined index: orders_id in /var/www/terminal/Models/Orders_Model.php on line 26
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/terminal/public/index.php:0
+PHP message: PHP   2. App\Router->run() /var/www/terminal/public/index.php:16
+PHP message: PHP   3. App\Router->try_it($uriMiddle = *uninitialized*, $pathMiddle = *uninitialized*, $uri = *uninitialized*) /var/www/terminal/App/Router.php:33
+PHP message: PHP   4. call_user_func_array:{/var/www/terminal/App/Router.php:67}(*uninitialized*, *uninitialized*) /var/www/terminal/App/Router.php:67
+PHP message: PHP   5. Controllers\DefaultController->actionImage() /var/www/terminal/App/Router.php:67
+PHP message: PHP   6. Models\Orders_Model->createOrder() /var/www/terminal/Controllers/DefaultController.php:44
+PHP message: PHP   7. Models\Orders_Model->Execute($sql = *uninitialized*, $params = *uninitialized*) /var/www/terminal/Models/Orders_Model.php:51
+PHP message: PHP   8. Models\Orders_Model->__destruct() /var/www/terminal/Models/Orders_Model.php:0" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /i
+2018/11/13 01:18:19 [error] 11309#11309: *4337 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /var/www/terminal/App/Db.php:39
+Stack trace:
+#0 /var/www/terminal/Models/Orders_Model.php(83): App\Db->Execute('SELECT orders.*...', Array)
+#1 /var/www/terminal/Models/Triggers_Models.php(54): Models\Orders_Mod" while reading upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /image HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru", referrer: "http://terminal.ru/image"
+2018/11/13 01:18:19 [error] 11309#11309: *4337 FastCGI sent in stderr: "el->getOrderById(NULL)
+#2 /var/www/terminal/Models/Triggers_Models.php(28): Models\Triggers_Models->setOrderInfo()
+#3 /var/www/terminal/App/SingletonTrait.php(18): Models\Triggers_Models->init(NULL)
+#4 /var/www/terminal/App/SingletonTrait.php(9): App\Db->__construct(NULL)
+#5 /var/www/terminal/Models/Orders_Model.php(27): App\Db::getInstance(NULL)
+#6 [internal function]: Models\Orders_Model->__destruct()
+#7 {main}
+  thrown in /var/www/terminal/App/Db.php on line 39
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/terminal/public/index.php:0
+PHP message: PHP   2. App\Router->run() /var/www/terminal/public/index.php:16
+PHP message: PHP   3. App\Router->try_it($uriMiddle = *uninitialized*, $pathMiddle = *uninitialized*, $uri = *uninitialized*) /var/www/terminal/App/Router.php:33
+PHP message: PHP   4. call_user_func_array:{/var/www/terminal/App/Router.php:67}(*uninitialized*, *uninitialized*) /var/www/terminal/App/Router.php:67
+PHP message: PHP   5. Controllers\DefaultController->actionImage() /var/www/terminal/App/Router.php:67
+PHP message: PHP   6. Models\Orders_Model->createOrder() /var/www/terminal/Controllers/DefaultController.php:44
+PHP message: PHP   7. Models\Orders_Model->Execute($sql = *uninitialized*, $params = *uninitialized*) /var/www/terminal/Models/Orders_Model.php:51" while reading upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /image HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru", referrer: "http://terminal.ru/image"
+2018/11/13 01:18:33 [error] 11309#11309: *4337 FastCGI sent in stderr: "PHP message: PHP Notice:  Undefined index: users_id in /var/www/terminal/Models/Orders_Model.php on line 42
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/terminal/public/index.php:0
+PHP message: PHP   2. App\Router->run() /var/www/terminal/public/index.php:16
+PHP message: PHP   3. App\Router->try_it() /var/www/terminal/App/Router.php:33
+PHP message: PHP   4. call_user_func_array:{/var/www/terminal/App/Router.php:67}() /var/www/terminal/App/Router.php:67
+PHP message: PHP   5. Controllers\DefaultController->actionImage() /var/www/terminal/App/Router.php:67
+PHP message: PHP   6. Models\Orders_Model->createOrder() /var/www/terminal/Controllers/DefaultController.php:44
+PHP message: PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /var/www/terminal/App/Db.php:39
+Stack trace:
+#0 /var/www/terminal/Models/Orders_Model.php(51): App\Db->Execute('INSERT INTO .or...', Array)
+#1 /var/www/terminal/Controllers/DefaultController.php(44): Models\Orders_Model->createOrder()
+#2 [internal function]: Controllers\DefaultController->actionImage()
+#3 /var/www/terminal/App/Router.php(67): call_user_func_array(Array, Array)
+#4 /var/www/terminal/App/Router.php(33): App\Router->try_it('image', 'default/image', 'image')
+#5 /var/www/terminal/public/index.php(16): App\Router->run()
+#6 {main}
+  thrown in /var/www/terminal/App/Db.php on line 39" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /image HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru", referrer: "http://terminal.ru/image"
+2018/11/13 01:20:40 [error] 11309#11309: *4344 FastCGI sent in stderr: "PHP message: PHP Warning:  Declaration of Models\Orders_Model::init($data) should be compatible with App\Db::init($data = NULL) in /var/www/terminal/Models/Orders_Model.php on line 12
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/terminal/public/index.php:0
+PHP message: PHP   2. App\Router->run() /var/www/terminal/public/index.php:16
+PHP message: PHP   3. App\Router->try_it() /var/www/terminal/App/Router.php:33
+PHP message: PHP   4. call_user_func_array:{/var/www/terminal/App/Router.php:67}() /var/www/terminal/App/Router.php:67
+PHP message: PHP   5. Controllers\DefaultController->actionImage() /var/www/terminal/App/Router.php:67
+PHP message: PHP   6. spl_autoload_call() /var/www/terminal/Controllers/DefaultController.php:44
+PHP message: PHP   7. Composer\Autoload\ClassLoader->loadClass() /var/www/terminal/Controllers/DefaultController.php:44
+PHP message: PHP   8. Composer\Autoload\includeFile() /var/www/terminal/vendor/composer/ClassLoader.php:322
+PHP message: PHP   9. include() /var/www/terminal/vendor/composer/ClassLoader.php:444
+PHP message: PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /var/www/terminal/App/Db.php on line 40
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/terminal/public/index.php:0
+PHP message: PHP   2. App\Router->run() /var/www/terminal/public/index.php:16
+PHP message: PHP   3. App\Router->try_it() /var/www/terminal/App/Router.php:33
+PHP message: PHP   4. call_user_func_array:{/var/www/terminal/App/Router.php:67}() /var/www/terminal/App/Router.php:67
+PHP message: PHP   5. Controllers\DefaultController->actionImage() /var/www/terminal/App/Router.php:67
+PHP message: PHP   6. Models\Orders_Model->createOrder() /var/www/terminal/Controllers/DefaultController.php:44
+PHP message: PHP   7. Models\Orders_Model->Execute() /var/www/terminal/Models/Orders_Model.php:51
+PHP message: PHP   8
+2018/11/13 01:20:40 [error] 11309#11309: *4344 FastCGI sent in stderr: "PHP message: PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /var/www/terminal/App/Db.php on line 42
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/terminal/public/index.php:0
+PHP message: PHP   2. App\Router->run() /var/www/terminal/public/index.php:16
+PHP message: PHP   3. App\Router->try_it() /var/www/terminal/App/Router.php:33
+PHP message: PHP   4. call_user_func_array:{/var/www/terminal/App/Router.php:67}() /var/www/terminal/App/Router.php:67
+PHP message: PHP   5. Controllers\DefaultController->actionImage() /var/www/terminal/App/Router.php:67
+PHP message: PHP   6. Models\Orders_Model->createOrder() /var/www/terminal/Controllers/DefaultController.php:44
+PHP message: PHP   7. Models\Orders_Model->Execute() /var/www/terminal/Models/Orders_Model.php:51
+PHP message: PHP   8. PDOStatement->execute() /var/www/terminal/App/Db.php:42
+PHP message: PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/terminal/App/Db.php:40) in /var/www/terminal/App/Exeption.php on line 30
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/terminal/public/index.php:0
+PHP message: PHP   2. App\Router->run() /var/www/terminal/public/index.php:16
+PHP message: PHP   3. App\Router->try_it() /var/www/terminal/App/Router.php:33
+PHP message: PHP   4. call_user_func_array:{/var/www/terminal/App/Router.php:67}() /var/www/terminal/App/Router.php:67
+PHP message: PHP   5. Controllers\DefaultController->actionImage() /var/www/terminal/App/Router.php:67
+PHP message: PHP   6. Models\Orders_Model->createOrder() /var/www/terminal/Controllers/DefaultController.php:44
+PHP message: PHP   7. App\Exeption->error404() /var/www/terminal/Models/Orders_Model.php:64
+PHP message: PHP   8. header() /var/www/terminal/App/Exeption.php:30" while reading upstream, client: 127.0.0.1, server: terminal.ru, request: "PO
+2018/11/13 01:22:33 [error] 11309#11309: *4350 FastCGI sent in stderr: "PHP message: PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /var/www/terminal/App/Db.php on line 40
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/terminal/public/index.php:0
+PHP message: PHP   2. App\Router->run() /var/www/terminal/public/index.php:16
+PHP message: PHP   3. App\Router->try_it() /var/www/terminal/App/Router.php:33
+PHP message: PHP   4. call_user_func_array:{/var/www/terminal/App/Router.php:67}() /var/www/terminal/App/Router.php:67
+PHP message: PHP   5. Controllers\DefaultController->actionImage() /var/www/terminal/App/Router.php:67
+PHP message: PHP   6. Models\Orders_Model->createOrder() /var/www/terminal/Controllers/DefaultController.php:44
+PHP message: PHP   7. Models\Orders_Model->Execute() /var/www/terminal/Models/Orders_Model.php:51
+PHP message: PHP   8. PDOStatement->execute() /var/www/terminal/App/Db.php:40
+PHP message: PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /var/www/terminal/App/Db.php on line 42
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/terminal/public/index.php:0
+PHP message: PHP   2. App\Router->run() /var/www/terminal/public/index.php:16
+PHP message: PHP   3. App\Router->try_it() /var/www/terminal/App/Router.php:33
+PHP message: PHP   4. call_user_func_array:{/var/www/terminal/App/Router.php:67}() /var/www/terminal/App/Router.php:67
+PHP message: PHP   5. Controllers\DefaultController->actionImage() /var/www/terminal/App/Router.php:67
+PHP message: PHP   6. Models\Orders_Model->createOrder() /var/www/terminal/Controllers/DefaultController.php:44
+PHP message: PHP   7. Models\Orders_Model->Execute() /var/www/terminal/Models/Orders_Model.php:51
+PHP message: PHP   8. PDOStatement->execute() /var/www/terminal/App/Db.php:42" while reading response header from upstream, client:
+2018/11/13 01:22:33 [error] 11309#11309: *4350 FastCGI sent in stderr: "PHP message: PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/terminal/App/Db.php:42) in /var/www/terminal/App/Exeption.php on line 30
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/terminal/public/index.php:0
+PHP message: PHP   2. App\Router->run() /var/www/terminal/public/index.php:16
+PHP message: PHP   3. App\Router->try_it() /var/www/terminal/App/Router.php:33
+PHP message: PHP   4. call_user_func_array:{/var/www/terminal/App/Router.php:67}() /var/www/terminal/App/Router.php:67
+PHP message: PHP   5. Controllers\DefaultController->actionImage() /var/www/terminal/App/Router.php:67
+PHP message: PHP   6. Models\Orders_Model->createOrder() /var/www/terminal/Controllers/DefaultController.php:44
+PHP message: PHP   7. App\Exeption->error404() /var/www/terminal/Models/Orders_Model.php:64
+PHP message: PHP   8. header() /var/www/terminal/App/Exeption.php:30" while reading upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /image HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru", referrer: "http://terminal.ru/"
+2018/11/13 01:24:22 [error] 11309#11309: *4353 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught TypeError: Argument 2 passed to Models\Images_Model::InsertImages() must be of the type array, null given, called in /var/www/terminal/Models/Orders_Model.php on line 56 and defined in /var/www/terminal/Models/Images_Model.php:16
+Stack trace:
+#0 /var/www/terminal/Models/Orders_Model.php(56): Models\Images_Model->InsertImages(3, NULL)
+#1 /var/www/terminal/Controllers/DefaultController.php(44): Models\Orders_Model->createOrder()
+#2 [internal function]: Controllers\DefaultController->actionImage()
+#3 /var/www/terminal/App/Router.php(67): call_user_func_array(Array, Array)
+#4 /var/www/terminal/App/Router.php(33): App\Router->try_it('image', 'default/image', 'image')
+#5 /var/www/terminal/public/index.php(16): App\Router->run()
+#6 {main}
+  thrown in /var/www/terminal/Models/Images_Model.php on line 16" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /image HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru", referrer: "http://terminal.ru/"
+2018/11/13 01:25:31 [error] 11309#11309: *4353 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught TypeError: Argument 2 passed to Models\Images_Model::InsertImages() must be of the type array, null given, called in /var/www/terminal/Models/Orders_Model.php on line 56 and defined in /var/www/terminal/Models/Images_Model.php:16
+Stack trace:
+#0 /var/www/terminal/Models/Orders_Model.php(56): Models\Images_Model->InsertImages(5, NULL)
+#1 /var/www/terminal/Controllers/DefaultController.php(44): Models\Orders_Model->createOrder()
+#2 [internal function]: Controllers\DefaultController->actionImage()
+#3 /var/www/terminal/App/Router.php(67): call_user_func_array(Array, Array)
+#4 /var/www/terminal/App/Router.php(33): App\Router->try_it('image', 'default/image', 'image')
+#5 /var/www/terminal/public/index.php(16): App\Router->run()
+#6 {main}
+  thrown in /var/www/terminal/Models/Images_Model.php on line 16" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /image HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru", referrer: "http://terminal.ru/"
+2018/11/13 01:26:46 [error] 11309#11309: *4353 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /image HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock", host: "terminal.ru", referrer: "http://terminal.ru/image"
+2018/11/13 01:27:48 [error] 11309#11309: *4353 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /var/www/terminal/App/Db.php:40
+Stack trace:
+#0 /var/www/terminal/Models/Orders_Model.php(52): App\Db->Execute('INSERT INTO .or...', Array)
+#1 /var/www/terminal/Controllers/DefaultController.php(44): Models\Orders_Model->createOrder()
+#2 [internal function]: Controllers\DefaultController->actionImage()
+#3 /var/www/terminal/App/Router.php(67): call_user_func_array(Array, Array)
+#4 /var/www/terminal/App/Router.php(33): App\Router->try_it('image', 'default/image', 'image')
+#5 /var/www/terminal/public/index.php(16): App\Router->run()
+#6 {main}
+  thrown in /var/www/terminal/App/Db.php on line 40" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /image HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru", referrer: "http://terminal.ru/image"
+2018/11/13 01:28:28 [error] 11309#11309: *4353 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /var/www/terminal/App/Db.php:40
+Stack trace:
+#0 /var/www/terminal/Models/Orders_Model.php(52): App\Db->Execute('INSERT INTO .or...', Array)
+#1 /var/www/terminal/Controllers/DefaultController.php(44): Models\Orders_Model->createOrder()
+#2 [internal function]: Controllers\DefaultController->actionImage()
+#3 /var/www/terminal/App/Router.php(67): call_user_func_array(Array, Array)
+#4 /var/www/terminal/App/Router.php(33): App\Router->try_it('image', 'default/image', 'image')
+#5 /var/www/terminal/public/index.php(16): App\Router->run()
+#6 {main}
+  thrown in /var/www/terminal/App/Db.php on line 40" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /image HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru", referrer: "http://terminal.ru/image"
+2018/11/13 01:29:38 [error] 11309#11309: *4353 FastCGI sent in stderr: "PHP message: PHP Notice:  Undefined index: orders_id in /var/www/terminal/Models/Orders_Model.php on line 26
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/terminal/public/index.php:0
+PHP message: PHP   2. App\Router->run() /var/www/terminal/public/index.php:16
+PHP message: PHP   3. App\Router->try_it($uriMiddle = *uninitialized*, $pathMiddle = *uninitialized*, $uri = *uninitialized*) /var/www/terminal/App/Router.php:33
+PHP message: PHP   4. call_user_func_array:{/var/www/terminal/App/Router.php:67}(*uninitialized*, *uninitialized*) /var/www/terminal/App/Router.php:67
+PHP message: PHP   5. Controllers\DefaultController->actionImage() /var/www/terminal/App/Router.php:67
+PHP message: PHP   6. Models\Orders_Model->createOrder() /var/www/terminal/Controllers/DefaultController.php:44
+PHP message: PHP   7. Models\Orders_Model->Execute($sql = *uninitialized*, $params = *uninitialized*) /var/www/terminal/Models/Orders_Model.php:52
+PHP message: PHP   8. Models\Orders_Model->__destruct() /var/www/terminal/Models/Orders_Model.php:0
+PHP message: PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /var/www/terminal/App/Db.php:40
+Stack trace:
+#0 /var/www/terminal/Models/Orders_Model.php(84): App\Db->Execute('SELECT orders.*...', Array)
+#1 /var/www/terminal/Models/Triggers_Models.php(54): Models\Orders_Model->getOrderById(NULL)
+#2 /var/www/terminal/Models/Triggers_Models.php(28): Models\Triggers_Models->setOrderInfo()
+#3 /var/www/terminal/App/SingletonTrait.php(18): Models\Triggers_Models->init(NULL)
+#4 /var/www/terminal/App/SingletonTrait.php(9): App\Db->__construct(NULL)
+#5 /var/www/terminal/Models/Orders_Model.php(27): App\Db::getInstance(NULL)
+#6 [internal function]: Models\Orders_Model->__destruct()
+#7 {main}
+  thrown in /var/www/terminal/App/Db.php on line 40
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/terminal/public/index.php:0
+PHP message: PHP   2. App\Router->run() /var
+2018/11/13 01:31:19 [error] 11309#11309: *4370 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /var/www/terminal/App/Db.php:40
+Stack trace:
+#0 /var/www/terminal/Models/Orders_Model.php(52): App\Db->Execute('INSERT INTO .or...', Array)
+#1 /var/www/terminal/Controllers/DefaultController.php(44): Models\Orders_Model->createOrder()
+#2 [internal function]: Controllers\DefaultController->actionImage()
+#3 /var/www/terminal/App/Router.php(67): call_user_func_array(Array, Array)
+#4 /var/www/terminal/App/Router.php(33): App\Router->try_it('image', 'default/image', 'image')
+#5 /var/www/terminal/public/index.php(16): App\Router->run()
+#6 {main}
+  thrown in /var/www/terminal/App/Db.php on line 40" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /image HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru", referrer: "http://terminal.ru/image"
+2018/11/13 01:31:56 [error] 11309#11309: *4370 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught TypeError: Argument 2 passed to Models\Images_Model::InsertImages() must be of the type array, null given, called in /var/www/terminal/Models/Orders_Model.php on line 56 and defined in /var/www/terminal/Models/Images_Model.php:16
+Stack trace:
+#0 /var/www/terminal/Models/Orders_Model.php(56): Models\Images_Model->InsertImages(7, NULL)
+#1 /var/www/terminal/Controllers/DefaultController.php(44): Models\Orders_Model->createOrder()
+#2 [internal function]: Controllers\DefaultController->actionImage()
+#3 /var/www/terminal/App/Router.php(67): call_user_func_array(Array, Array)
+#4 /var/www/terminal/App/Router.php(33): App\Router->try_it('image', 'default/image', 'image')
+#5 /var/www/terminal/public/index.php(16): App\Router->run()
+#6 {main}
+  thrown in /var/www/terminal/Models/Images_Model.php on line 16" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /image HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru", referrer: "http://terminal.ru/image"
+2018/11/13 01:33:10 [error] 11309#11309: *4375 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in /var/www/terminal/Models/Triggers_Models.php:55
+Stack trace:
+#0 /var/www/terminal/Models/Triggers_Models.php(28): Models\Triggers_Models->setOrderInfo()
+#1 /var/www/terminal/App/Db.php(21): Models\Triggers_Models->init('9')
+#2 /var/www/terminal/App/SingletonTrait.php(9): App\Db->__construct('9')
+#3 /var/www/terminal/Models/Orders_Model.php(27): App\Db::getInstance('9')
+#4 [internal function]: Models\Orders_Model->__destruct()
+#5 {main}
+  thrown in /var/www/terminal/Models/Triggers_Models.php on line 55" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /image HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru", referrer: "http://terminal.ru/image"
+2018/11/13 01:35:08 [error] 11309#11309: *4378 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in /var/www/terminal/Models/Triggers_Models.php:55
+Stack trace:
+#0 /var/www/terminal/Models/Triggers_Models.php(28): Models\Triggers_Models->setOrderInfo()
+#1 /var/www/terminal/App/Db.php(21): Models\Triggers_Models->init('11')
+#2 /var/www/terminal/App/SingletonTrait.php(9): App\Db->__construct('11')
+#3 /var/www/terminal/Models/Orders_Model.php(27): App\Db::getInstance('11')
+#4 [internal function]: Models\Orders_Model->__destruct()
+#5 {main}
+  thrown in /var/www/terminal/Models/Triggers_Models.php on line 55" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /image HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru", referrer: "http://terminal.ru/image"
+2018/11/13 01:35:32 [error] 11309#11309: *4378 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in /var/www/terminal/Models/Triggers_Models.php:55
+Stack trace:
+#0 /var/www/terminal/Models/Triggers_Models.php(28): Models\Triggers_Models->setOrderInfo()
+#1 /var/www/terminal/App/Db.php(21): Models\Triggers_Models->init('13')
+#2 /var/www/terminal/App/SingletonTrait.php(9): App\Db->__construct('13')
+#3 /var/www/terminal/Models/Orders_Model.php(27): App\Db::getInstance('13')
+#4 [internal function]: Models\Orders_Model->__destruct()
+#5 {main}
+  thrown in /var/www/terminal/Models/Triggers_Models.php on line 55" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /image HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru", referrer: "http://terminal.ru/image"
+2018/11/13 01:35:39 [error] 11309#11309: *4378 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function fetch() on null in /var/www/terminal/Models/Triggers_Models.php:55
+Stack trace:
+#0 /var/www/terminal/Models/Triggers_Models.php(28): Models\Triggers_Models->setOrderInfo()
+#1 /var/www/terminal/App/Db.php(21): Models\Triggers_Models->init('15')
+#2 /var/www/terminal/App/SingletonTrait.php(9): App\Db->__construct('15')
+#3 /var/www/terminal/Models/Orders_Model.php(27): App\Db::getInstance('15')
+#4 [internal function]: Models\Orders_Model->__destruct()
+#5 {main}
+  thrown in /var/www/terminal/Models/Triggers_Models.php on line 55" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /image HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru", referrer: "http://terminal.ru/image"
+2018/11/13 01:37:18 [error] 11309#11309: *4378 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /var/www/terminal/App/Db.php:41
+Stack trace:
+#0 /var/www/terminal/Models/Triggers_Models.php(48): App\Db->Execute('SELECT * FROM ....', Array)
+#1 /var/www/terminal/Models/Triggers_Models.php(29): Models\Triggers_Models->setTrigger()
+#2 /var/www/terminal/App/Db.php(21): Models\Triggers_Models->init('19')
+#3 /var/www/terminal/App/SingletonTrait.php(9): App\Db->__construct('19')
+#4 /var/www/terminal/Models/Orders_Model.php(27): App\Db::getInstance('19')
+#5 [internal function]: Models\Orders_Model->__destruct()
+#6 {main}
+  thrown in /var/www/terminal/App/Db.php on line 41" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /image HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru", referrer: "http://terminal.ru/image"
+2018/11/13 01:38:15 [error] 11309#11309: *4378 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /var/www/terminal/App/Db.php:41
+Stack trace:
+#0 /var/www/terminal/Models/Triggers_Models.php(48): App\Db->Execute('SELECT * FROM ....', Array)
+#1 /var/www/terminal/Models/Triggers_Models.php(29): Models\Triggers_Models->setTrigger()
+#2 /var/www/terminal/App/Db.php(21): Models\Triggers_Models->init('21')
+#3 /var/www/terminal/App/SingletonTrait.php(9): App\Db->__construct('21')
+#4 /var/www/terminal/Models/Orders_Model.php(27): App\Db::getInstance('21')
+#5 [internal function]: Models\Orders_Model->__destruct()
+#6 {main}
+  thrown in /var/www/terminal/App/Db.php on line 41" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /image HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru", referrer: "http://terminal.ru/image"
+2018/11/13 01:39:06 [error] 11309#11309: *4378 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /var/www/terminal/App/Db.php:41
+Stack trace:
+#0 /var/www/terminal/Models/Triggers_Models.php(48): App\Db->Execute('SELECT * FROM ....', Array)
+#1 /var/www/terminal/Models/Triggers_Models.php(29): Models\Triggers_Models->setTrigger()
+#2 /var/www/terminal/App/Db.php(21): Models\Triggers_Models->init('23')
+#3 /var/www/terminal/App/SingletonTrait.php(9): App\Db->__construct('23')
+#4 /var/www/terminal/Models/Orders_Model.php(27): App\Db::getInstance('23')
+#5 [internal function]: Models\Orders_Model->__destruct()
+#6 {main}
+  thrown in /var/www/terminal/App/Db.php on line 41" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /image HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru", referrer: "http://terminal.ru/image"
+2018/11/13 01:39:46 [error] 11309#11309: *4378 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /var/www/terminal/App/Db.php:41
+Stack trace:
+#0 /var/www/terminal/Models/Triggers_Models.php(48): App\Db->Execute('SELECT * FROM ....', Array)
+#1 /var/www/terminal/Models/Triggers_Models.php(29): Models\Triggers_Models->setTrigger()
+#2 /var/www/terminal/App/Db.php(21): Models\Triggers_Models->init('25')
+#3 /var/www/terminal/App/SingletonTrait.php(9): App\Db->__construct('25')
+#4 /var/www/terminal/Models/Orders_Model.php(27): App\Db::getInstance('25')
+#5 [internal function]: Models\Orders_Model->__destruct()
+#6 {main}
+  thrown in /var/www/terminal/App/Db.php on line 41" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /image HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru", referrer: "http://terminal.ru/image"
+2018/11/13 01:41:03 [error] 11309#11309: *4378 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /image HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock", host: "terminal.ru", referrer: "http://terminal.ru/image"
+2018/11/13 01:41:17 [error] 11309#11309: *4378 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /var/www/terminal/App/Db.php:41
+Stack trace:
+#0 /var/www/terminal/Models/Triggers_Models.php(48): App\Db->Execute('SELECT * FROM ....', Array)
+#1 /var/www/terminal/Models/Triggers_Models.php(29): Models\Triggers_Models->setTrigger()
+#2 /var/www/terminal/App/Db.php(21): Models\Triggers_Models->init('29')
+#3 /var/www/terminal/App/SingletonTrait.php(9): App\Db->__construct('29')
+#4 /var/www/terminal/Models/Orders_Model.php(27): App\Db::getInstance('29')
+#5 [internal function]: Models\Orders_Model->__destruct()
+#6 {main}
+  thrown in /var/www/terminal/App/Db.php on line 41" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /image HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru", referrer: "http://terminal.ru/image"
+2018/11/13 01:46:19 [error] 11309#11309: *4401 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /var/www/terminal/App/Db.php:45
+Stack trace:
+#0 /var/www/terminal/Models/Triggers_Models.php(48): App\Db->Execute('SELECT * FROM ....', Array)
+#1 /var/www/terminal/Models/Triggers_Models.php(29): Models\Triggers_Models->setTrigger()
+#2 /var/www/terminal/App/Db.php(21): Models\Triggers_Models->init(NULL)
+#3 /var/www/terminal/App/SingletonTrait.php(9): App\Db->__construct(NULL)
+#4 /var/www/terminal/Models/Orders_Model.php(27): App\Db::getInstance(NULL)
+#5 [internal function]: Models\Orders_Model->__destruct()
+#6 {main}
+  thrown in /var/www/terminal/App/Db.php on line 45" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "GET /admin/open/109 HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru", referrer: "http://terminal.ru/admin/open/109"
+2018/11/13 01:46:26 [error] 11309#11309: *4401 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /var/www/terminal/App/Db.php:45
+Stack trace:
+#0 /var/www/terminal/Models/Triggers_Models.php(48): App\Db->Execute('SELECT * FROM ....', Array)
+#1 /var/www/terminal/Models/Triggers_Models.php(29): Models\Triggers_Models->setTrigger()
+#2 /var/www/terminal/App/Db.php(21): Models\Triggers_Models->init('33')
+#3 /var/www/terminal/App/SingletonTrait.php(9): App\Db->__construct('33')
+#4 /var/www/terminal/Models/Orders_Model.php(27): App\Db::getInstance('33')
+#5 [internal function]: Models\Orders_Model->__destruct()
+#6 {main}
+  thrown in /var/www/terminal/App/Db.php on line 45" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /image HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru", referrer: "http://terminal.ru/image"
+2018/11/13 01:47:10 [error] 11309#11309: *4401 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /var/www/terminal/App/Db.php:46
+Stack trace:
+#0 /var/www/terminal/Models/Triggers_Models.php(48): App\Db->Execute('SELECT * FROM ....', Array)
+#1 /var/www/terminal/Models/Triggers_Models.php(29): Models\Triggers_Models->setTrigger()
+#2 /var/www/terminal/App/Db.php(21): Models\Triggers_Models->init('35')
+#3 /var/www/terminal/App/SingletonTrait.php(9): App\Db->__construct('35')
+#4 /var/www/terminal/Models/Orders_Model.php(27): App\Db::getInstance('35')
+#5 [internal function]: Models\Orders_Model->__destruct()
+#6 {main}
+  thrown in /var/www/terminal/App/Db.php on line 46" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /image HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru", referrer: "http://terminal.ru/image"
+2018/11/13 01:50:42 [error] 11309#11309: *4407 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /var/www/terminal/App/Db.php:41
+Stack trace:
+#0 /var/www/terminal/Models/Triggers_Models.php(49): App\Db->Execute('SELECT * FROM ....', Array)
+#1 /var/www/terminal/Models/Triggers_Models.php(29): Models\Triggers_Models->setTrigger()
+#2 /var/www/terminal/App/Db.php(21): Models\Triggers_Models->init('37')
+#3 /var/www/terminal/App/SingletonTrait.php(9): App\Db->__construct('37')
+#4 /var/www/terminal/Models/Orders_Model.php(27): App\Db::getInstance('37')
+#5 [internal function]: Models\Orders_Model->__destruct()
+#6 {main}
+  thrown in /var/www/terminal/App/Db.php on line 41" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /image HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru", referrer: "http://terminal.ru/image"
+2018/11/13 01:50:56 [error] 11309#11309: *4407 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /var/www/terminal/App/Db.php:41
+Stack trace:
+#0 /var/www/terminal/Models/Triggers_Models.php(50): App\Db->Execute('SELECT * FROM ....', Array)
+#1 /var/www/terminal/Models/Triggers_Models.php(30): Models\Triggers_Models->setTrigger()
+#2 /var/www/terminal/App/Db.php(21): Models\Triggers_Models->init(NULL)
+#3 /var/www/terminal/App/SingletonTrait.php(9): App\Db->__construct('39')
+#4 /var/www/terminal/Models/Orders_Model.php(27): App\Db::getInstance('39')
+#5 [internal function]: Models\Orders_Model->__destruct()
+#6 {main}
+  thrown in /var/www/terminal/App/Db.php on line 41" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /image HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru", referrer: "http://terminal.ru/image"
+2018/11/13 01:52:27 [error] 11309#11309: *4412 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Maximum function nesting level of '256' reached, aborting! in /var/www/terminal/App/Db.php:19
+Stack trace:
+#0 /var/www/terminal/Models/Triggers_Models.php(25): App\Db->__construct(NULL)
+#1 /var/www/terminal/App/Db.php(21): Models\Triggers_Models->init(NULL)
+#2 /var/www/terminal/Models/Triggers_Models.php(25): App\Db->__construct(NULL)
+#3 /var/www/terminal/App/Db.php(21): Models\Triggers_Models->init(NULL)
+#4 /var/www/terminal/Models/Triggers_Models.php(25): App\Db->__construct(NULL)
+#5 /var/www/terminal/App/Db.php(21): Models\Triggers_Models->init(NULL)
+#6 /var/www/terminal/Models/Triggers_Models.php(25): App\Db->__construct(NULL)
+#7 /var/www/terminal/App/Db.php(21): Models\Triggers_Models->init(NULL)
+#8 /var/www/terminal/Models/Triggers_Models.php(25): App\Db->__construct(NULL)
+#9 /var/www/terminal/App/Db.php(21): Models\Triggers_Models->init(NULL)
+#10 /var/www/terminal/Models/Triggers_Models.php(25): App\Db->__construct(NULL)
+#11 /var/www/terminal/App/Db.ph" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /image HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru", referrer: "http://terminal.ru/image"
+2018/11/13 01:53:25 [error] 11309#11309: *4412 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught TypeError: Argument 2 passed to Models\Images_Model::InsertImages() must be of the type array, null given, called in /var/www/terminal/Models/Orders_Model.php on line 56 and defined in /var/www/terminal/Models/Images_Model.php:16
+Stack trace:
+#0 /var/www/terminal/Models/Orders_Model.php(56): Models\Images_Model->InsertImages(43, NULL)
+#1 /var/www/terminal/Controllers/DefaultController.php(44): Models\Orders_Model->createOrder()
+#2 [internal function]: Controllers\DefaultController->actionImage()
+#3 /var/www/terminal/App/Router.php(67): call_user_func_array(Array, Array)
+#4 /var/www/terminal/App/Router.php(33): App\Router->try_it('image', 'default/image', 'image')
+#5 /var/www/terminal/public/index.php(16): App\Router->run()
+#6 {main}
+  thrown in /var/www/terminal/Models/Images_Model.php on line 16" while reading response header from upstream, client: 127.0.0.1, server: terminal.ru, request: "POST /image HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php7.2-fpm.sock:", host: "terminal.ru", referrer: "http://terminal.ru/image"

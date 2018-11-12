@@ -35,7 +35,7 @@ class AdminController extends Controller
             return Exeption::getInstance()->error404();
         }
         unset($request['bot_check']);
-        $order = Orders_Model::getInstance()->ChangeOrderById($request);
+        $order = Orders_Model::getInstance($request)->ChangeOrderById();
         if($order){
             header('Location:'.$_SERVER['HTTP_REFERER']);
         }

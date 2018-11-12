@@ -10,21 +10,23 @@ namespace App;
 class Db
 {
     use SingletonTrait;
+    protected static $_instance;
     protected $connection;
     protected $db_name;
     protected $status;
     public $db_config;
 
-    protected function __construct()
+    protected function __construct($data = null)
     {
+        //$this->init($data);
         $this->db_config = Confing::getConfig('db_params');
         $this->connection = $this->getConnection();
     }
 
-    public function __destruct()
-    {
-        $this->connection = null;
-    }
+    //public function __destruct()
+    //{
+    //    $this->connection = null;
+    //}
 
     protected function getConnection()
     {

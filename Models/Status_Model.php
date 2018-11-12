@@ -13,6 +13,7 @@ use App\{Db,Exeption};
 
 class Status_Model extends Db
 {
+    protected static $_instance;
     protected $tb_name = 'status';
     public function GetStatusList()
     {
