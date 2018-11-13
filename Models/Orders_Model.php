@@ -105,13 +105,14 @@ class Orders_Model extends Db
                 return Exeption::getInstance()->error404($this->status->errorInfo());
             }
         }
-        $sql = "UPDATE $this->db_name.$this->tb_name SET status_id = :status_id,sum1 = :sum1,sum2 = :sum2,`check`=:check WHERE id = :orders_id";
+        $sql = "UPDATE $this->db_name.$this->tb_name SET status_id = :status_id,sum1 = :sum1,sum2 = :sum2,`check`=:check,users_id=:users_id WHERE id = :orders_id";
         $params = array(
             'status_id' => $request['status_id'],
             'check' => $request['check'],
             'sum1' => $request['sum1'],
             'sum2' => $request['sum2'],
             'orders_id' => $request['orders_id'],
+            'users_id' => $request['users_id'],
         );
         $result = $this->Execute($sql,$params);
         if(!$result){

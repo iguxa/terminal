@@ -10,7 +10,7 @@ namespace Controllers;
 
 
 use App\{Controller,Exeption};
-use Models\{Orders_Model,Users_Models};
+use Models\{Chats_Model, Orders_Model, Users_Models};
 
 class AdminController extends Controller
 {
@@ -26,6 +26,7 @@ class AdminController extends Controller
         $orders = Orders_Model::getInstance()->getOrderById($id);
         $orders['form_action'] = '/admin_form';
         $users = Users_Models::getInstance()->getUsers();
+        $chats = Chats_Model::getInstance($id)->GetChat();
         $orders['users'] = $users;
         return $this->render('form_for_manager', $orders);
     }
@@ -37,6 +38,7 @@ class AdminController extends Controller
         }
         unset($request['bot_check']);
         $order = Orders_Model::getInstance($request)->ChangeOrderById();
+
         if($order){
             header('Location:'.$_SERVER['HTTP_REFERER']);
         }

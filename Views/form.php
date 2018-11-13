@@ -51,7 +51,7 @@
                 <input type="file" class="form-control-file" id="exampleFormControlFile1" name="array[]" multiple accept="image/*,image/jpeg">
             </div>
         <input type="text" name="bot_check" class="d-none" value="">
-        <div class="custom text-center"> <p>Ответ</p></div>
+        <div class="custom text-center"> <p>Поддержка</p></div>
         <div class="custom_litle">
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Выберите статус</label>
@@ -71,30 +71,8 @@
                     <?php endforeach; ?>
                 </select>
             </div>
-            <div class="status_info">Трейд-ин: <span>0</span></div>
-            <div class="status_info">Наличка: <span>0</span></div>
-            <div class="status">Комментарий</div>
-            <div class="comment">Хз</div>
         </div>
-        <div class="custom text-center"> <p>Проверка</p></div>
-        <div class="custom_litle">
-            <div class="status">Запрос на проверку </div>
-            <div class="check">Нет</div>
-            <div class="status_info">Результат проверки товара (неверная информация приводит к штрафу)</div>
-            <div class="info">
-                какая то проверка
-            </div>
-            <div class="status_info">Комментарий</div>
-            <div class="info">
-                какая то проверка
-            </div>
-            <div class="bad">
-                <div class="status">Ответственный: <span>Дмитрий Иванов</span></div>
-            </div>
-        </div>
-        <div class="custom text-center">Результат </div>
-        <div class="status_info">Трейд-ин: <span>0</span></div>
-        <div class="status_info">Наличка: <span>0</span></div>
+
 
         <input type="submit" class="btn btn-success waves-effect">
     </form>

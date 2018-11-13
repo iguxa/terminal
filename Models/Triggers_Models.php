@@ -60,9 +60,11 @@ class Triggers_Models extends Db
     public function createTrigger():void
     {
         if($this->trigger_id){
-            $sql = "UPDATE $this->db_name.$this->tb_name SET users_id = :users_id WHERE id = :orders_id";
+            $sql = "UPDATE $this->db_name.$this->tb_name SET users_id = :users_id WHERE id = :id";
             $params = array(
-                'users_id' => $this->order['users_id'],);
+                'users_id' => $this->order['users_id'],
+                'id' => $this->trigger_id['id'],
+                );
         }else{
             $sql = "INSERT INTO $this->db_name.$this->tb_name (users_id,orders_id)
                 VALUES (:users_id,:orders_id);";

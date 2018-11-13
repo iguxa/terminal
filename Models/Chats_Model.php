@@ -13,6 +13,7 @@ class Chats_Model extends Db
 {
     protected static $_instance;
     protected $tb_name = 'chats';
+    protected $orders_id;
 
     public function CreateMessage($request)
     {
@@ -24,6 +25,10 @@ class Chats_Model extends Db
             'messages' => $request['messages'],
         );
         return $this->Execute($sql,$params);
+    }
+    public function GetChat()
+    {
+        $sql = "SELECT * FROM $this->db_name.$this->tb_name where orders_id=:orders_id";
     }
 
 }

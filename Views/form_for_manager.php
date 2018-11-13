@@ -44,8 +44,8 @@
             <?php endif ?>
         <input type="text" name="bot_check" class="d-none" value="">
         <input type="hidden" name="orders_id" class="d-none" value="<?=$params['order']['id']?>">
-        <input type="hidden" name="users_id" class="d-none" value="2">
         <div class="custom text-center"> <p>Ответ менеджера</p></div>
+        <div class="status">Статус: <span><?=$params['order']['status']?></span></div>
         <div class="form-group">
             <label for="exampleFormControlSelect1">Выберите статус</label>
             <select class="form-control" id="exampleFormControlSelect1" data-categorie="categories" required name = 'status_id'>
@@ -65,7 +65,7 @@
             </select>
         </div>
         <div class="custom_litle">
-            <div class="status">Статус: <span><?=$params['order']['status']?></span></div>
+
             <div class="form-group">
                 <label for="exampleInputEmail1">Трейд-ин</label>
                 <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Трейд-ин" name='sum1'>
@@ -75,10 +75,14 @@
                 <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Наличка" name='sum2'>
             </div>
             <div class="form-group">
+
                 <label for="exampleFormControlTextarea1">Комментарий</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Комментарий" name='messages'></textarea>
             </div>
         </div>
+
+
+
         <div class="custom text-center"> <p>Проверка</p></div>
         <div class="custom_litle">
             <div class="form-group">
