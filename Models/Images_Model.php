@@ -11,7 +11,7 @@ use App\{Db,Exeption};
 
 class Images_Model extends Db
 {
-    protected static $_instance;
+    //protected static $_instance;
     protected $tb_name = 'images';
     public function InsertImages(int $orders_id, array $request)
     {

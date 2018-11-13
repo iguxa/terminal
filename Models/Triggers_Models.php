@@ -14,21 +14,21 @@ use App\{Db,Exeption,Confing};
 class Triggers_Models extends Db
 {
     protected static $_instance;
-    protected $tb_name = 'orders';
+    protected $tb_name = 'triggers';
     protected $orders_id;
     protected $order;
     protected $disable_trigger;
     protected $trigger;
+    protected $trigger_id;
 
     public function init($data = null)
     {
-        parent::__construct($data = null);
+        parent::init($data);
         $trigger_config = Confing::getConfig('trigger');
         $this->disable_trigger = $trigger_config['disable'];
         $this->orders_id = $data;
         $this->setOrderInfo();
-        $this->setTrigger();
-
+        $this->TriggerExists();
     }
 
     public function Trigger():void
@@ -45,7 +45,7 @@ class Triggers_Models extends Db
     }
     public function setTrigger() :void
     {
-        $sql = "SELECT * FROM $this->db_name.$this->tb_name where orders_id = :orders_id";
+        $sql = "SELECT status_id FROM $this->db_name.$this->tb_name where id = :orders_id";
         $params = ['orders_id' => $this->orders_id];
         $this->Execute($sql,$params);
         $this->trigger = $this->status ? $this->status->fetch() : null;
@@ -53,13 +53,13 @@ class Triggers_Models extends Db
     }
     public function setOrderInfo():void
     {
-        Orders_Model::getInstance()->getOrderById($this->orders_id);
-        $order = $this->status ? $this->status->fetch() : null;
+        $orders =  Orders_Model::getInstance()->getOrderById($this->orders_id);
+        $order = $orders ? $orders['order'] : null;
         $this->order = $order;
     }
     public function createTrigger():void
     {
-        if($this->trigger){
+        if($this->trigger_id){
             $sql = "UPDATE $this->db_name.$this->tb_name SET users_id = :users_id WHERE id = :orders_id";
             $params = array(
                 'users_id' => $this->order['users_id'],);
@@ -68,7 +68,7 @@ class Triggers_Models extends Db
                 VALUES (:users_id,:orders_id);";
             $params = array(
                 'users_id' => $this->order['users_id'],
-                'orders_id' => $this->order['orders_id'],
+                'orders_id' => $this->order['id'],
                 );
         }
         $this->Execute($sql,$params);
@@ -76,10 +76,19 @@ class Triggers_Models extends Db
     }
     public function deleteTrigger():void
     {
-        $sql = "DELETE FROM $this->db_name.$this->tb_name WHERE oreders_id = :orders_id);";
+        $sql = "DELETE FROM $this->db_name.$this->tb_name WHERE orders_id = :orders_id and id = :trigger_id;";
         $params = array(
-            'orders_id' => $this->order['orders_id'],
+            'orders_id' => $this->order['id'],
+            'trigger_id' =>$this->trigger_id['id']
         );
+        $this->Execute($sql,$params);
+    }
+    public function TriggerExists() :void
+    {
+        $sql = "SELECT id FROM $this->db_name.$this->tb_name where orders_id= :orders_id LIMIT 1";
+        $params = ['orders_id' => $this->order['id']];
+        $this->Execute($sql,$params);
+        $this->trigger_id = $this->status ? $this->status->fetch() : null;
     }
 
 }

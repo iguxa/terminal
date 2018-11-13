@@ -9,9 +9,8 @@
 namespace Controllers;
 
 
-use App\Controller;
-use App\Exeption;
-use Models\Orders_Model;
+use App\{Controller,Exeption};
+use Models\{Orders_Model,Users_Models};
 
 class AdminController extends Controller
 {
@@ -26,6 +25,8 @@ class AdminController extends Controller
        // $this->errors_list = 'проверка,хотя';
         $orders = Orders_Model::getInstance()->getOrderById($id);
         $orders['form_action'] = '/admin_form';
+        $users = Users_Models::getInstance()->getUsers();
+        $orders['users'] = $users;
         return $this->render('form_for_manager', $orders);
     }
     public function actionAdmin_form()

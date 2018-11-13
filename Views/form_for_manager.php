@@ -55,6 +55,15 @@
                 <?php endforeach; ?>
             </select>
         </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Перевести</label>
+            <select class="form-control" id="exampleFormControlSelect1" data-categorie="categories" required name = 'users_id'>
+                <option></option>
+                <?php foreach ($params['users'] as $users ):?>
+                    <option value="<?=$users['id']?>"><?=$users['users']?> - <?= $users['position']?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
         <div class="custom_litle">
             <div class="status">Статус: <span><?=$params['order']['status']?></span></div>
             <div class="form-group">

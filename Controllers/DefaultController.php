@@ -7,7 +7,7 @@
  */
 
 namespace Controllers;
-use App\{Confing, Controller, Exeption, UploadImage};
+use App\{Confing, Controller, Exeption, UploadImage,Db,Decorator};
 use Models\{Categories_Model, Orders_Model, Status_Model, Users_Models};
 
 class DefaultController extends Controller
@@ -41,7 +41,12 @@ class DefaultController extends Controller
         }else{
             return Exeption::getInstance()->error404($uploaded['uploaded_files']);
         }
-        Orders_Model::getInstance($request)->createOrder();
+
+        $test = Orders_Model::getInstance($request);
+
+        $test->createOrder();
+        //Db::getModel('orders');
+        //Db::getModel('orders');
 
     }
     public function actionImage_show()

@@ -10,19 +10,23 @@ namespace App;
 class Db
 {
     use SingletonTrait;
-    protected static $_instance;
+    //protected static $_instance;
     protected $connection;
     protected $db_name;
     protected $status;
     public $db_config;
 
-    protected function __construct($data = null)
+    protected function init($data = null)
     {
-        //$this->init($data);
         $this->db_config = Confing::getConfig('db_params');
         $this->connection = $this->getConnection();
     }
-
+    public static function getModel($name)  {
+        $class = ucfirst($name).'_Model';
+        if(class_exists($class)) {
+           return $class::getInstance();
+        }
+    }
     //public function __destruct()
     //{
     //    $this->connection = null;
@@ -39,9 +43,9 @@ class Db
     {
         try {
             $result = $this->connection->prepare($sql);
-            $result->execute($params);
+            $execute = $result->execute($params);
             $this->status = $result;
-            return $result->execute($params);
+            return $execute;
         }
         catch(\PDOException $e)
         {

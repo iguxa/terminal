@@ -2,11 +2,12 @@
 namespace App;
 trait SingletonTrait
 {
-    protected static $_instance;
+    protected static $_instance = array();
+
 
     public static function getInstance($data = null)
     {
-        return (static::$_instance == null) ? static::$_instance = new static($data) : static::$_instance;
+        return (!isset(self::$_instance[static::class])) ? self::$_instance[get_called_class()] = new static($data) : self::$_instance[get_called_class()];
     }
 
     protected function init($data = null)
