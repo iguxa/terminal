@@ -32,7 +32,7 @@ var fn=function(){
     });
     setTimeout(arguments.callee,2000);
 };
-setTimeout( fn,1000 );
+//setTimeout( fn,1000 );
 
 
 function soundClick() {
