@@ -37,6 +37,6 @@ setTimeout( fn,1000 );
 
 function soundClick() {
     var audio = new Audio(); // Создаём новый элемент Audio
-    audio.src = 'audio/audio.mp3'; // Указываем путь к звуку "клика"
+    audio.src = '/audio/audio.mp3'; // Указываем путь к звуку "клика"
     audio.autoplay = true; // Автоматически запускаем
 }
