@@ -7,7 +7,7 @@
  */
 
 namespace Models;
-use App\{Db,Exeption};
+use App\{Db,Exeption,Confing};
 
 class Orders_Model extends Db
 {
@@ -15,11 +15,14 @@ class Orders_Model extends Db
     protected $tb_name = 'orders';
     public $orders_id;
     protected $request;
+    protected $orders_config;
+    public $links;
 
     public function init($data = null)
     {
         parent::init($data);
         $this->request = $data;
+        $this->orders_config = Confing::getConfig('orders_params');
     }
 
     //public function __destruct()
@@ -73,6 +76,7 @@ class Orders_Model extends Db
     {
         $sql = "SELECT orders.id,orders.date,orders.discount,orders.item,orders.description,orders.sum1,orders.sum2,status.status FROM terminal.orders
                 JOIN status on orders.status_id=status.id order by orders.id desc ";
+        $sql = $this->limit($sql);
         $result = $this->getPdo($sql)->fetchAll();
         return $result;
     }
@@ -105,10 +109,9 @@ class Orders_Model extends Db
                 return Exeption::getInstance()->error404($this->status->errorInfo());
             }
         }
-        $sql = "UPDATE $this->db_name.$this->tb_name SET status_id = :status_id,sum1 = :sum1,sum2 = :sum2,`check`=:check,users_id=:users_id WHERE id = :orders_id";
+        $sql = "UPDATE $this->db_name.$this->tb_name SET status_id = :status_id,sum1 = :sum1,sum2 = :sum2,users_id=:users_id WHERE id = :orders_id";
         $params = array(
             'status_id' => $request['status_id'],
-            'check' => $request['check'],
             'sum1' => $request['sum1'],
             'sum2' => $request['sum2'],
             'orders_id' => $request['orders_id'],
@@ -121,6 +124,20 @@ class Orders_Model extends Db
         Triggers_Models::getInstance($request['orders_id'])->Trigger();
 
         return $this->Execute($sql,$params);
+    }
+    protected function limit($sql)
+    {
+        $limit = $this->orders_config['limit'];
+        $counter = $this->getPdo($sql)->rowCount();
+        $page =  isset($_GET['page']) ? ($_GET['page']-1) : 0;
+        $start = abs($page*$limit);
+        $num_pages = ceil($counter/$limit);
+        for($i=1;$i<=$num_pages;$i++) {
+            $links[] = $i;
+        }
+        $this->links = $links ?? null;
+        return $sql."LIMIT $start,$limit";
+
     }
 
 }

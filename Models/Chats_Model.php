@@ -13,22 +13,37 @@ class Chats_Model extends Db
 {
     protected static $_instance;
     protected $tb_name = 'chats';
-    protected $orders_id;
+    public function init($data = null)
+    {
+        parent::init($data);
+    }
+
 
     public function CreateMessage($request)
     {
+        $order = Orders_Model::getInstance()->getOrderById($request['orders_id']);
+
         $sql = "INSERT INTO $this->db_name.$this->tb_name (users_id, orders_id, messages)
                 VALUES (:users_id, :orders_id, :messages);";
         $params = array(
-            'users_id' => $request['users_id'],
+            'users_id' => $order['order']['users_id'],
             'orders_id' => $request['orders_id'],
             'messages' => $request['messages'],
         );
         return $this->Execute($sql,$params);
     }
-    public function GetChat()
+    public function GetChats($id)
     {
-        $sql = "SELECT * FROM $this->db_name.$this->tb_name where orders_id=:orders_id";
+        $sql = "SELECT chats.id,chats.messages,chats.date,users.position,users.id,users.users FROM $this->db_name.$this->tb_name
+                JOIN users on users.id=chats.users_id  
+                where orders_id=:orders_id  order by chats.id desc";
+        $params = [
+            'orders_id' => $id,
+
+        ];
+        $this->Execute($sql,$params);
+        $chats = $this->status->fetchAll();
+        return $chats;
     }
 
 }

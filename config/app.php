@@ -8,5 +8,6 @@
 return array(
     'images_params',
     'db_params',
-    'trigger'
+    'trigger_params',
+    'orders_params'
 );

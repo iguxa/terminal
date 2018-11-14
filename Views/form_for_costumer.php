@@ -47,10 +47,10 @@
         <div class="custom text-center"> <p>Ответ менеджера</p></div>
         <div class="status">Статус: <span><?=$params['order']['status']?></span></div>
         <?php foreach ($params['users'] as $users ):?>
-            <?php if($users['position'] == 'Консультант' and $params['order']['users_id'] == $users['id']):?>
-                <div class="status">В работе у: <span><?=$users['users']?></span></div>
-            <?php elseif($users['position'] == 'Менеджер' and $params['order']['users_id'] == $users['id']) :?>
-                <div class="status">В работе у: <span><?=$users['users']?></span></div>
+        <?php if($users['position'] == 'Консультант' and $params['order']['users_id'] == $users['id']):?>
+            <div class="status">В работе у: <span><?=$users['users']?></span></div>
+        <?php elseif($users['position'] == 'Менеджер' and $params['order']['users_id'] == $users['id']) :?>
+             <div class="status">В работе у: <span><?=$users['users']?></span></div>
             <?php endif; ?>
         <?php endforeach; ?>
         <div class="form-group">
@@ -78,13 +78,14 @@
             </select>
         </div>
         <div class="custom_litle">
+
             <div class="form-group">
                 <label for="exampleInputEmail1">Трейд-ин</label>
-                <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Трейд-ин" name='sum1'>
+                <input type="number" readonly class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Трейд-ин" name='sum1' value="<?=$params['order']['sum1']?>">
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Наличка</label>
-                <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Наличка" name='sum2'>
+                <input type="number" readonly class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Наличка" name='sum2' value="<?=$params['order']['sum2']?>">
             </div>
             <div class="container">
                 <div class="row">
@@ -118,11 +119,10 @@
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Комментарий" name='messages'></textarea>
             </div>
         </div>
-
-
-
-
         <input type="submit" class="btn btn-success waves-effect">
     </form>
 </div>
 </div>
+
+
+

@@ -27,10 +27,6 @@ class Db
            return $class::getInstance();
         }
     }
-    //public function __destruct()
-    //{
-    //    $this->connection = null;
-    //}
 
     protected function getConnection()
     {

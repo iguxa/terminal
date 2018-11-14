@@ -24,7 +24,7 @@ class Triggers_Models extends Db
     public function init($data = null)
     {
         parent::init($data);
-        $trigger_config = Confing::getConfig('trigger');
+        $trigger_config = Confing::getConfig('trigger_params');
         $this->disable_trigger = $trigger_config['disable'];
         $this->orders_id = $data;
         $this->setOrderInfo();
@@ -91,6 +91,16 @@ class Triggers_Models extends Db
         $params = ['orders_id' => $this->order['id']];
         $this->Execute($sql,$params);
         $this->trigger_id = $this->status ? $this->status->fetch() : null;
+    }
+    public function CheckTrigger($id)
+    {
+        $sql = "SELECT * FROM $this->db_name.$this->tb_name where users_id= :users_id";
+        $params = [
+            'users_id' => $id,
+        ];
+        $this->Execute($sql,$params);
+        $result = $this->status->fetchAll();
+        return $result;
     }
 
 }

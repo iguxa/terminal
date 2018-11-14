@@ -10,7 +10,7 @@
             <label for="exampleFormControlSelect1">Выберите категорию</label>
             <select class="form-control" id="exampleFormControlSelect1" data-categorie="categories" name = 'categories_id'>
                 <?php foreach ($params['categories'] as $categories ):?>
-                    <option value="<?=$categories['id']?>"><?=$categories['categories']?></optionname>
+                    <option value="<?=$categories['id']?>"><?=$categories['categories']?></option>
                 <?php endforeach; ?>
             </select>
         </div>

@@ -5,7 +5,9 @@ return array(
     'admin_form'=>'admin/admin_form',
     'admin/open/([0-9]+)'=>'admin/open/$1',
     'admin'=>'admin/index',
+    'trigger123'=>'default/trigger/',
 
-    //'uploads/([a-z]+)'=>'default/image_show/$1',
+    'manager/open/([0-9]+)'=>'default/open/$1',
+    'manager'=>'default/manager/',
     ''=>'default/index/',
 );

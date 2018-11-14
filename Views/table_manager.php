@@ -1,5 +1,6 @@
 
 <div class="table-responsive">
+    <div class="d-flex justify-content-center"><a href="/" class="btn btn-primary" href="#" role="button"> Создать заказ</a></div>
     <table class="table table-striped">
         <thead>
         <tr>
@@ -14,7 +15,7 @@
         <tbody>
         <?php foreach ($params['orders'] as $order) :?>
         <tr>
-            <th scope="row"><a href="/admin/open/<?=$order['id']?>"><?=$order['id']?></a></th>
+            <th scope="row"><a href="/manager/open/<?=$order['id']?>"><?=$order['id']?></a></th>
             <td><?=$order['status']?></td>
             <td><?=$this->date_format($order['date']);?></td>
             <td><?=$order['item']?></td>

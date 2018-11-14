@@ -16,8 +16,13 @@ class AdminController extends Controller
 {
     public function actionIndex()
     {
-        $orders = Orders_Model::getInstance()->getOrders();
-        return $this->render('table', $orders);
+        $orders_model = Orders_Model::getInstance();
+        $orders = $orders_model->getOrders();
+        $links = $orders_model->links;
+        $data['orders'] = $orders;
+        $data['links'] = $links;
+
+        return $this->render('table', $data);
     }
     public function actionOpen($id)
     {
@@ -26,8 +31,9 @@ class AdminController extends Controller
         $orders = Orders_Model::getInstance()->getOrderById($id);
         $orders['form_action'] = '/admin_form';
         $users = Users_Models::getInstance()->getUsers();
-        $chats = Chats_Model::getInstance($id)->GetChat();
+        $chats = Chats_Model::getInstance()->GetChats($id);
         $orders['users'] = $users;
+        $orders['chats'] = $chats;
         return $this->render('form_for_manager', $orders);
     }
     public function actionAdmin_form()

@@ -17,3 +17,34 @@
 .img{
     padding: 1%;
 }
+.user_name{
+    font-size:14px;
+    font-weight: bold;
+}
+.comments-list .media{
+    border-bottom: 1px dotted #ccc;
+}
+.media-body{
+    padding-left: 3%;
+}
+.yours{
+    background: #D9FFAD; /* Цвет фона под заголовком */
+    color: green; /* Цвет текста */
+    padding: 2px
+}
+.opponents{
+    background: #D9FFAD; /* Цвет фона под заголовком */
+    color: red; /* Цвет текста */
+    padding: 2px
+}
+.link{
+    padding-right: 5%;
+}
+.ccc1{
+    width: 100%;
+}
+.table-responsive{
+
+    padding-top: 100px;
+
+}

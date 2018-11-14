@@ -8,7 +8,7 @@
 
 namespace Controllers;
 use App\{Confing, Controller, Exeption, UploadImage,Db,Decorator};
-use Models\{Categories_Model, Orders_Model, Status_Model, Users_Models};
+use Models\{Categories_Model, Orders_Model, Status_Model, Triggers_Models, Users_Models, Chats_Model};
 
 class DefaultController extends Controller
 {
@@ -42,15 +42,44 @@ class DefaultController extends Controller
             return Exeption::getInstance()->error404($uploaded['uploaded_files']);
         }
 
-        $test = Orders_Model::getInstance($request);
-
-        $test->createOrder();
+        $result = Orders_Model::getInstance($request)->createOrder();
+        if($result){
+            header('Location:/manager');
+        }
         //Db::getModel('orders');
         //Db::getModel('orders');
 
     }
+    public function actionManager()
+    {
+        $orders_model = Orders_Model::getInstance();
+        $orders = $orders_model->getOrders();
+        $links = $orders_model->links;
+        $data['orders'] = $orders;
+        $data['links'] = $links;
+        return $this->render('table_manager', $data);
+    }
+    public function actionOpen($id)
+    {
+        //echo $id;
+        // $this->errors_list = 'проверка,хотя';
+        $orders = Orders_Model::getInstance()->getOrderById($id);
+        $orders['form_action'] = '/admin_form';
+        $users = Users_Models::getInstance()->getUsers();
+        $chats = Chats_Model::getInstance()->GetChats($id);
+        $orders['users'] = $users;
+        $orders['chats'] = $chats;
+        return $this->render('form_for_costumer', $orders);
+    }
+
     public function actionImage_show()
     {
        return $this->render('index');
+    }
+    public function actionTrigger()
+    {
+       $result =  Triggers_Models::getInstance()->CheckTrigger(2);
+       $result = json_encode($result);
+       echo $result;
     }
 }
