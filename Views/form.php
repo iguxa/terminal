@@ -38,12 +38,12 @@
             <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Запрос скидки" name='discount'>
         </div>
         <div class="form-group">
-            <label for="exampleInputEmail1">Показ.1</label>
-            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Показ.1" name='sum1'>
+            <label for="exampleInputEmail1">Трейд-ин</label>
+            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Трейд-ин" name='sum1'>
         </div>
         <div class="form-group">
-            <label for="exampleInputEmail1">Показ.2</label>
-            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Показ.2" name='sum2'>
+            <label for="exampleInputEmail1">Наличка</label>
+            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Наличка" name='sum2'>
         </div>
             <div class="form-group">
                 <label for="exampleFormControlFile1">Загрузить фото</label>
