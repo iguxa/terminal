@@ -1,6 +1,8 @@
 <?php
 return array(
 
+    'former'=>'admin/former',
+
     'image'=>'default/image',
     'admin_form'=>'admin/admin_form',
     'admin/open/([0-9]+)'=>'admin/open/$1',

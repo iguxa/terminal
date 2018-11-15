@@ -50,5 +50,11 @@ class AdminController extends Controller
         }
 
     }
+    public function actionFormer()
+    {
+
+        return $this->render('former');
+
+    }
 
 }
