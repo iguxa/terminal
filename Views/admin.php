@@ -55,6 +55,8 @@
             </div>
             <div class="form-group">
                 <p>Комментарий</p>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Комментарий" name='messages'></textarea>
+
             </div>
 
 

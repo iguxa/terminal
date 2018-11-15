@@ -40,8 +40,8 @@ class Orders_Model extends Db
     public function createOrder()
     {
         $request = $this->request;
-        $sql = "INSERT INTO $this->db_name.$this->tb_name (users_id, categories_id, item,description,discount,sum1,sum2,status_id)
-                VALUES (:users_id, :categories_id, :item,:description,:discount,:sum1,:sum2,:status_id);";
+        $sql = "INSERT INTO $this->db_name.$this->tb_name (users_id, categories_id, item,description,discount,sum1,sum2,manager_comment)
+                VALUES (:users_id, :categories_id, :item,:description,:discount,:sum1,:sum2,:manager_comment);";
         $params = array(
             'users_id' => $request['users_id'],
             'categories_id' => $request['categories_id'],
@@ -50,7 +50,7 @@ class Orders_Model extends Db
             'discount' => $request['discount'],
             'sum1' => $request['sum1'],
             'sum2' => $request['sum2'],
-            'status_id' => $request['status_id'],
+            'manager_comment' => $request['manager_comment'],
             );
 
         $result = $this->Execute($sql,$params);
@@ -69,7 +69,7 @@ class Orders_Model extends Db
             return Exeption::getInstance()->error404($this->status->errorInfo());
         }
 
-        Triggers_Models::getInstance($orders_id)->Trigger();
+        //Triggers_Models::getInstance($orders_id)->Trigger();
         return $result;
     }
     public function getOrders()

@@ -63,13 +63,14 @@ class DefaultController extends Controller
     {
         //echo $id;
         // $this->errors_list = 'проверка,хотя';
-        $orders = Orders_Model::getInstance()->getOrderById($id);
-        $orders['form_action'] = '/admin_form';
-        $users = Users_Models::getInstance()->getUsers();
-        $chats = Chats_Model::getInstance()->GetChats($id);
-        $orders['users'] = $users;
-        $orders['chats'] = $chats;
-        return $this->render('form_for_costumer', $orders);
+        $params = Orders_Model::getInstance()->getOrderById($id);
+        $params['form_action'] = '/admin_form';
+        $params['categories'] = Categories_Model::getInstance()->getCategories();
+        //$users = Users_Models::getInstance()->getUsers();
+        //$chats = Chats_Model::getInstance()->GetChats($id);
+        //$orders['users'] = $users;
+        //$orders['chats'] = $chats;
+        return $this->render('manager', $params);
     }
 
     public function actionImage_show()
@@ -81,5 +82,37 @@ class DefaultController extends Controller
        $result =  Triggers_Models::getInstance()->CheckTrigger(2);
        $result = json_encode($result);
        echo $result;
+    }
+
+    public function actionManager_form()
+    {
+        $categories = Categories_Model::getInstance()->getCategories();
+        //$users = Users_Models::getInstance()->getUsers();
+        //$status = Status_Model::getInstance()->GetStatusList();
+        $params['categories'] = $categories;
+        //$params['users'] = $users;
+        //$params['status'] = $status;
+        return $this->render('manager',$params);
+    }
+    public function actionForm_fill()
+    {
+        $request = $_POST ?: null;
+        $images = $_FILES ?: null;
+        if(!$request or !$images or $request['bot_check'] or !$request['item']){
+            return Exeption::getInstance()->error404();
+        }
+        unset($request['bot_check']);
+        unset($request['MAX_FILE_SIZE']);
+        $uploaded = UploadImage::getInstance()->load($images);
+        if($uploaded['status'] == 'success'){
+            $request['images'] = $uploaded['uploaded_files'];
+        }else{
+            return Exeption::getInstance()->error404($uploaded['uploaded_files']);
+        }
+
+        $result = Orders_Model::getInstance($request)->createOrder();
+        if($result){
+            header('Location:/manager');
+        }
     }
 }
