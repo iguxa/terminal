@@ -92,7 +92,7 @@ class DefaultController extends Controller
         $params['categories'] = $categories;
         //$params['users'] = $users;
         //$params['status'] = $status;
-        return $this->render('manager',$params);
+        return $this->render('create_order',$params);
     }
     public function actionForm_fill()
     {
@@ -113,6 +113,34 @@ class DefaultController extends Controller
         $result = Orders_Model::getInstance($request)->createOrder();
         if($result){
             header('Location:/manager');
+        }
+    }
+    public function actionUpdate_form()
+    {
+        $request = $_POST ?: null;
+        if($request['bot_check']){
+            return Exeption::getInstance()->error404();
+        }
+        unset($request['bot_check']);
+
+        $params = array(
+            //'status_id' => $request['status_id'],
+           // 'sum1' => $request['sum1'],
+           // 'sum2' => $request['sum2'],
+            'users_id' => $request['users_id'],
+            'manager_comment'=>$request['manager_comment'],
+            'manager_result_test'=>$request['manager_result_test'],
+           // 'need_check'=>  $request['need_check'],
+        );
+        $id['key'] = $request['orders_id'];
+        $id['value'] = 'id';
+
+        $order = Orders_Model::getInstance()->UpdateByParams($params,$id);
+
+        // $order = Orders_Model::getInstance()->UpdateById($request,$id);
+
+        if($order){
+            header('Location:'.$_SERVER['HTTP_REFERER']);
         }
     }
 }

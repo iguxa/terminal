@@ -100,30 +100,35 @@ class Orders_Model extends Db
         $data['option_status'] = $option_status;
         return $data;
     }
-    public function ChangeOrderById()
+    public function ChangeOrderById($params = null)
     {
         $request = $this->request;
-        if($request['messages']){
-            $create_chat = Chats_Model::getInstance()->CreateMessage($request);
-            if(!$create_chat){
-                return Exeption::getInstance()->error404($this->status->errorInfo());
-            }
-        }
-        $sql = "UPDATE $this->db_name.$this->tb_name SET status_id = :status_id,sum1 = :sum1,sum2 = :sum2,users_id=:users_id WHERE id = :orders_id";
+        //if($request['messages']){
+        //    $create_chat = Chats_Model::getInstance()->CreateMessage($request);
+        //    if(!$create_chat){
+        //        return Exeption::getInstance()->error404($this->status->errorInfo());
+        //    }
+        //}
+        //$sql = "UPDATE $this->db_name.$this->tb_name SET status_id = :status_id,sum1 = :sum1,sum2 = :sum2,users_id=:users_id WHERE id = :orders_id";
+
         $params = array(
             'status_id' => $request['status_id'],
             'sum1' => $request['sum1'],
             'sum2' => $request['sum2'],
-            'orders_id' => $request['orders_id'],
             'users_id' => $request['users_id'],
+            'admin_comment'=>$request['admin_comment'],
+            'need_check'=>  $request['need_check'],
         );
-        $result = $this->Execute($sql,$params);
+        $id['key'] = $request['orders_id'];
+        $id['value'] = 'id';
+        $result = $this->UpdateByParams($params,$id);
+
         if(!$result){
             return Exeption::getInstance()->error404($this->status->errorInfo());
         }
-        Triggers_Models::getInstance($request['orders_id'])->Trigger();
+        //Triggers_Models::getInstance($request['orders_id'])->Trigger();
 
-        return $this->Execute($sql,$params);
+        return $result;
     }
     protected function limit($sql)
     {

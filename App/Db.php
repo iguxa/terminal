@@ -57,6 +57,27 @@ class Db
         $result -> execute();
         return $result;
     }
+    public function UpdateByParams(array $params,array $id)
+    {
+        //$params = array_diff($params, array(''));
+        $params_count = count($params);
+        $counter = 0;
+        $sql = '';
+        $key_id = $id['key'];
+        $value_id = $id['value'];
+        foreach ($params as $key => $param){
+            $sql .= ' , '.$key.'=:'.$key;
+            $params_new[$key] = $param;
+            if(++$counter == $params_count){
+                $sql = trim($sql, ', ');
+                $sql .= ' WHERE '.$value_id.'= :'.$value_id;
+                break;
+            }
+        };
+        $sql = "UPDATE $this->db_name.$this->tb_name SET ".$sql;
+        $params_new[$value_id] = $key_id;
+        return $this->Execute($sql,$params_new);
+    }
     /*public function getCategories(){
         $sql = "SELECT * FROM $this->db_name.categories;";
         $statement = $this->getPdo($sql);
