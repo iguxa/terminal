@@ -139,13 +139,24 @@
             <div class="form-group">
                 <label for="exampleInputEmail1">Трейд-ин</label>
                 <?php if(isset($params['order']['sum1']) and isset($params['order']['status_id']) and $params['order']['status_id'] == 2) :?>
-                    <input type="number" readonly value="<?=$params['order']['sum1']?>" class="green form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Запрос скидки" name=''>
+                    <?php if($params['order']['sum1']) :?>
+                        <input type="number" readonly value="<?=$params['order']['sum1']?>" class="green form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Запрос скидки" name=''>
+                    <?php else : ?>
+                        <input type="number" readonly value="<?=$params['order']['sum1']?>" class="red form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Запрос скидки" name=''>
+
+                    <?php endif ?>
+
                 <?php endif; ?>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Наличка</label>
                 <?php if(isset($params['order']['sum2']) and isset($params['order']['status_id']) and $params['order']['status_id'] == 2) :?>
-                    <input type="number" readonly value="<?=$params['order']['sum2']?>" class="green form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Запрос скидки" name=''>
+                    <?php if($params['order']['sum2']) :?>
+                        <input type="number" readonly value="<?=$params['order']['sum2']?>" class="green form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Запрос скидки" name=''>
+                    <?php else : ?>
+                        <input type="number" readonly value="<?=$params['order']['sum2']?>" class="red form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Запрос скидки" name=''>
+
+                    <?php endif ?>
                 <?php endif; ?>
             </div>
 
@@ -156,7 +167,7 @@
             <input type="submit" class="btn btn-success waves-effect">
         </form>
         <?php if(isset($params['order']['status_id']) and $params['order']['status_id'] == 2):?>
-        <button type="button" class="btn btn-success trigger_delete"> Отключить уведомления по заказу <?=$params['order']['id']?> </button>
+            <a class="btn btn-primary btn-success trigger_delete" href="/manager" role="button">Отключить уведомления по заказу <?=$params['order']['id']?></a>
         <?php endif; ?>
 
     </div>
