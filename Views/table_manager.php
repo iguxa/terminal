@@ -27,7 +27,7 @@
             <td><?=$this->date_format($order['date']);?></td>
             <td><?=$order['item']?></td>
             <td><?=$order['sum1']?></td>
-            <td><?=$order['sum1']?></td>
+            <td><?=$order['sum2']?></td>
         </tr>
         <?php endforeach; ?>
         </tbody>
