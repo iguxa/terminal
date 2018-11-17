@@ -94,10 +94,10 @@
                         <?php if(isset($params['order']['need_check'])) :?>
                             <?php if($params['order']['need_check']) :?>
                                     <option value="0">Нет</option>
-                                    <option selected value="<?=$params['order']['need_check']?>">Да</option>
+                                    <option selected value="<?=$params['order']['need_check']?>">Проврека</option>
                             <?php else: ?>
                                     <option selected value="0">Нет</option>
-                                    <option value="1">Да</option>
+                                    <option value="1">Проврека</option>
                             <?php endif; ?>
                             <?php else: ?>
                                 <option selected value="0">Нет</option>

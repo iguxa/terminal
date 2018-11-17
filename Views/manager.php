@@ -102,7 +102,7 @@
                     <label for="exampleFormControlSelect1">Запрос на проверку</label>
 
                         <?php if(isset($params['order']['need_check']) and $params['order']['need_check']) :?>
-                            <input readonly value="Да" class="input form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Да" name='check'>
+                            <input readonly value="Проврека" class="input form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Проврека" name='check'>
                         <?php else: ?>
                             <input readonly value="Нет" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Нет" name='check'>
                         <?php endif; ?>
