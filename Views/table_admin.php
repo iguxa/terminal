@@ -13,6 +13,7 @@
         </thead>
         <tbody>
         <?php
+        $style ='';
         $style_sum1 = '';
         $style_sum2 = '';
         $order['sum1'] = '';
@@ -22,8 +23,6 @@
         foreach ($params['orders'] as $order) :?>
             <?php if($order['status_id'] != 2){
                 $style = 'orange';
-            }else{
-                $style = 'green';
             }
                 if ($order['sum1']) {
                     $style_sum1 = 'green';
