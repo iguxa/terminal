@@ -13,22 +13,39 @@
         </tr>
         </thead>
         <tbody>
-        <?php foreach ($params['orders'] as $order) :?>
+        <?php
+        $style_sum1 = '';
+        $style_sum2 = '';
+        $order['sum1'] = '';
+        $order['sum2'] = '';
+
+
+        foreach ($params['orders'] as $order) :?>
             <?php if($order['status_id'] != 2){
-                $order['sum1'] = '';
-                $order['sum2'] = '';
                 $style = 'orange';
             }else{
                 $style = 'green';
-            } ?>
-        <tr>
-            <th scope="row"><a href="/manager/open/<?=$order['id']?>"><?=$order['id']?></a></th>
-            <td class="<?=$style?>" ><?=$order['status']?></td>
-            <td><?=$this->date_format($order['date']);?></td>
-            <td><?=$order['item']?></td>
-            <td><?=$order['sum1']?></td>
-            <td><?=$order['sum2']?></td>
-        </tr>
+            }
+            if ($order['sum1']) {
+                $style_sum1 = 'green';
+            } else{
+                $style_sum1 = 'red';
+            }
+            if ($order['sum2']) {
+                $style_sum1 = 'green';
+            } else {
+                $style_sum2 = 'red';
+            }
+
+            ?>
+            <tr>
+                <th scope="row"><a href="/manager/open/<?=$order['id']?>"><?=$order['id']?></a></th>
+                <td class="<?=$style?>" ><?=$order['status']?></td>
+                <td><?=$this->date_format($order['date']);?></td>
+                <td><?=$order['item']?></td>
+                <td class="<?=$style_sum1?>"><?=$order['sum1']?></td>
+                <td class="<?=$style_sum2?>"><?=$order['sum2']?></td>
+            </tr>
         <?php endforeach; ?>
         </tbody>
     </table>
