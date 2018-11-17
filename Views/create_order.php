@@ -1,3 +1,4 @@
+<a class="btn btn-primary" href="/manager" role="button">Все запросы</a>
 <div class="d-flex justify-content-center">
     <div class="d-flex flex-column w-75">
         <form action="/manager/form_fill" method="post" enctype="multipart/form-data">
