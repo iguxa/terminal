@@ -45,10 +45,10 @@
                 <label for="exampleFormControlFile1">Загрузить фото</label>
 
                 <?php if(isset($params['order']['images_id'])) :?>
-                    <input type="hidden" value="<?=$params['order']['images_id']?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Запрос скидки" name='images_id'>
+                    <input type="hidden" value="<?=$params['order']['images_id']?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" name='images_id'>
                    <div class="custom_img">
                     <?php foreach ($params['orders_images'] as $orders_images) :?>
-                        <img class="mw-100" src="/uploads/<?=$orders_images['images']?>" alt="">
+                        <img class="mw-100 img" src="/uploads/<?=$orders_images['images']?>" alt="">
                     <?php endforeach ?>
                    </div>
                 <?php endif; ?>
@@ -72,13 +72,13 @@
             <div class="form-group">
                 <label for="exampleInputEmail1">Трейд-ин</label>
                 <?php if(isset($params['order']['sum1'])) :?>
-                    <input type="number" disabled value="<?=$params['order']['sum1']?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Запрос скидки" name='sum1'>
+                    <input type="number" disabled value="<?=$params['order']['sum1']?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Трейд-ин" name='sum1'>
                 <?php endif; ?>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Наличка</label>
                 <?php if(isset($params['order']['sum2'])) :?>
-                    <input type="number" disabled value="<?=$params['order']['sum2']?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Запрос скидки" name='sum2'>
+                    <input type="number" disabled value="<?=$params['order']['sum2']?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Наличка" name='sum2'>
                 <?php endif; ?>
             </div>
 
@@ -144,10 +144,12 @@
 
             <input type="text" name="bot_check" class="d-none" value="">
                 <input type="hidden" name="users_id" value="2"><!--отсылаем на админа-->
-                <input type="hidden" name="orders_id" value=" <?php echo $params['order']['id'] ?? '' ?>">
-
-
+                <input type="hidden"  class="orders_id" name="orders_id" value=" <?php echo $params['order']['id'] ?? '' ?>">
             <input type="submit" class="btn btn-success waves-effect">
         </form>
+        <?php if(isset($params['order']['status_id']) and $params['order']['status_id'] == 2):?>
+        <button type="button" class="btn btn-success trigger_delete"> Отключить уведомления по заказу <?=$params['order']['id']?> </button>
+        <?php endif; ?>
+
     </div>
 </div>

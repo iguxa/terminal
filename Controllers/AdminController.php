@@ -14,6 +14,8 @@ use Models\{Chats_Model, Orders_Model, Users_Models,Categories_Model};
 
 class AdminController extends Controller
 {
+    public $layoutFile=('../Views/bootstrap_admin.php');
+
     public function actionIndex()
     {
         $orders_model = Orders_Model::getInstance();

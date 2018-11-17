@@ -42,9 +42,13 @@
 }
 .ccc1{
     width: 100%;
+    top: 0;
 }
 .table-responsive{
 
     padding-top: 100px;
 
+}
+.trigger_delete{
+    margin-top: 5%;
 }

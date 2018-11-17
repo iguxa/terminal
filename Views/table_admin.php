@@ -1,6 +1,5 @@
 
 <div class="table-responsive">
-    <div class="d-flex justify-content-center"><a href="/" class="btn btn-primary" href="#" role="button"> Создать заказ</a></div>
     <table class="table table-striped">
         <thead>
         <tr>

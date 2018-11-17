@@ -48,7 +48,7 @@
                     <input type="hidden" value="<?=$params['order']['images_id']?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Запрос скидки" name='images_id'>
                     <div class="custom_img">
                         <?php foreach ($params['orders_images'] as $orders_images) :?>
-                            <img class="mw-100" src="/uploads/<?=$orders_images['images']?>" alt="">
+                            <img class="mw-100 img" src="/uploads/<?=$orders_images['images']?>" alt="">
                         <?php endforeach ?>
                     </div>
                 <?php endif; ?>
@@ -71,13 +71,13 @@
             <div class="form-group">
                 <label for="exampleInputEmail1">Трейд-ин</label>
                 <?php if(isset($params['order']['sum1'])) :?>
-                    <input type="number" value="<?=$params['order']['sum1']?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Запрос скидки" name='sum1'>
+                    <input type="number" value="<?=$params['order']['sum1']?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Трейд-ин" name='sum1'>
                 <?php endif; ?>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Наличка</label>
                 <?php if(isset($params['order']['sum2'])) :?>
-                    <input type="number" value="<?=$params['order']['sum2']?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Запрос скидки" name='sum2'>
+                    <input type="number" value="<?=$params['order']['sum2']?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Наличка" name='sum2'>
                 <?php endif; ?>
             </div>
             <div class="form-group">
@@ -91,13 +91,16 @@
                     <label for="exampleFormControlSelect1">Запрос на проверку</label>
                     <select class="form-control" id="exampleFormControlSelect1" data-categorie="categories" name = 'need_check'>
                         <?php if(isset($params['order']['need_check'])) :?>
-                        <?php if($params['order']['need_check']) :?>
-                                <option value="0">Нет</option>
-                                <option selected value="<?=$params['order']['need_check']?>">Да</option>
-                        <?php else: ?>
+                            <?php if($params['order']['need_check']) :?>
+                                    <option value="0">Нет</option>
+                                    <option selected value="<?=$params['order']['need_check']?>">Да</option>
+                            <?php else: ?>
+                                    <option selected value="0">Нет</option>
+                                    <option value="1">Да</option>
+                            <?php endif; ?>
+                            <?php else: ?>
                                 <option selected value="0">Нет</option>
                                 <option value="1">Да</option>
-                        <?php endif; ?>
                         <?php endif; ?>
                     </select>
 
@@ -135,10 +138,15 @@
 
                 <input type="text" name="bot_check" class="d-none" value="">
                 <input type="hidden" name="users_id" value="1"><!--отсылаем на менеджера-->
-                <input type="hidden" name="orders_id" value=" <?php echo $params['order']['id'] ?? '' ?>">
+                <input type="hidden" class="orders_id" name="orders_id" value=" <?php echo $params['order']['id'] ?? '' ?>">
 
 
                 <input type="submit" class="btn btn-success waves-effect">
-        </form>
+
+
     </div>
+        </form>
+    <?php if(isset($params['order']['status_id']) and $params['order']['status_id'] == 2):?>
+        <button type="button" class="btn btn-success trigger_delete"> Отключить уведомления по заказу <?=$params['order']['id']?> </button>
+    <?php endif; ?>
 </div>

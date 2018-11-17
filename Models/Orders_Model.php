@@ -69,7 +69,7 @@ class Orders_Model extends Db
             return Exeption::getInstance()->error404($this->status->errorInfo());
         }
 
-        //Triggers_Models::getInstance($orders_id)->Trigger();
+        Triggers_Models::getInstance($orders_id)->Trigger();
         return $result;
     }
     public function getOrders()
@@ -126,7 +126,7 @@ class Orders_Model extends Db
         if(!$result){
             return Exeption::getInstance()->error404($this->status->errorInfo());
         }
-        //Triggers_Models::getInstance($request['orders_id'])->Trigger();
+        Triggers_Models::getInstance($request['orders_id'])->Trigger();
 
         return $result;
     }

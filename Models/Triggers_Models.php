@@ -24,8 +24,8 @@ class Triggers_Models extends Db
     public function init($data = null)
     {
         parent::init($data);
-        $trigger_config = Confing::getConfig('trigger_params');
-        $this->disable_trigger = $trigger_config['disable'];
+        //$trigger_config = Confing::getConfig('trigger_params');
+        //$this->disable_trigger = $trigger_config['disable'];
         $this->orders_id = $data;
         $this->setOrderInfo();
         $this->TriggerExists();
@@ -33,11 +33,14 @@ class Triggers_Models extends Db
 
     public function Trigger():void
     {
-        if($this->order['status_id'] == $this->disable_trigger){
+        /*if($this->order['status_id'] == $this->disable_trigger){
             $this->deleteTrigger();
         }else{
             $this->createTrigger();
-        }
+        }*/
+
+        $this->createTrigger();
+
     }
     public function getTrigger() :void
     {

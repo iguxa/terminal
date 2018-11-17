@@ -12,13 +12,14 @@
 </head>
 <body>
 <div class="meg">
+
+
 <div class="alert alert-success ccc1 position-sticky" role="alert">
    Сюда приходят уведомления
 </div>
     <!-- информация о пользователе для тригера,тк нет авторизациии -->
-    <input class="users_id" disabled type="hidden" value="1" >
-    <input class="position" disabled type="hidden" value="manager" >
-
+    <input class="users_id" disabled type="hidden" value="2" >
+    <input class="position" disabled type="hidden" value="admin" >
     <?= $body ?>
 </div>
 <!-- Optional JavaScript -->

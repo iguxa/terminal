@@ -12,6 +12,8 @@ use Models\{Categories_Model, Orders_Model, Status_Model, Triggers_Models, Users
 
 class DefaultController extends Controller
 {
+    public $layoutFile=('../Views/bootstrap.php');
+
     public function actionIndex($id)
     {
         if($_SERVER['REQUEST_URI'] != '/'){
@@ -79,9 +81,16 @@ class DefaultController extends Controller
     }
     public function actionTrigger()
     {
-       $result =  Triggers_Models::getInstance()->CheckTrigger(2);
+       $id = $_POST['users_id'] ?? null;
+       if($id){
+
+       $result =  Triggers_Models::getInstance()->CheckTrigger($id);
        $result = json_encode($result);
        echo $result;
+       }else{
+           $result = json_encode('Не найдено');
+           echo $result;
+       }
     }
 
     public function actionManager_form()
@@ -137,10 +146,19 @@ class DefaultController extends Controller
 
         $order = Orders_Model::getInstance()->UpdateByParams($params,$id);
 
-        // $order = Orders_Model::getInstance()->UpdateById($request,$id);
+        Triggers_Models::getInstance($request['orders_id'])->Trigger();
 
         if($order){
             header('Location:'.$_SERVER['HTTP_REFERER']);
         }
+    }
+    public function actionTrigger_delete()
+    {
+        $orders_id = $_POST['orders_id'] ?? null;
+        if(!$orders_id){
+            return Exeption::getInstance()->error404('не найдено');
+        }
+        Triggers_Models::getInstance($orders_id)->deleteTrigger();
+
     }
 }
