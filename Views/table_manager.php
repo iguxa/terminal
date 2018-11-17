@@ -32,7 +32,7 @@
                 $style_sum1 = 'red';
             }
             if ($order['sum2']) {
-                $style_sum1 = 'green';
+                $style_sum2 = 'green';
             } else {
                 $style_sum2 = 'red';
             }
