@@ -13,16 +13,14 @@
         </tr>
         </thead>
         <tbody>
-        <?php
-        $style ='';
-        $style_sum1 = '';
-        $style_sum2 = '';
-        $order['sum1'] = '';
-        $order['sum2'] = '';
-
-
-        foreach ($params['orders'] as $order) :?>
-            <?php if($order['status_id'] != 2){
+        <?php foreach ($params['orders'] as $order) :?>
+            <?php
+            $style ='';
+            $style_sum1 = '';
+            $style_sum2 = '';
+            $order['sum1'] = '';
+            $order['sum2'] = '';
+            if($order['status_id'] != 2){
                 $style = 'orange';
             }
             if ($order['sum1']) {
