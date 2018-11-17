@@ -1,3 +1,5 @@
+<a class="btn btn-primary" href="/manager" role="button">Все запросы</a>
+
 <div class="d-flex justify-content-center">
     <div class="d-flex flex-column w-75">
         <form action="/manager/update_form" method="post" enctype="multipart/form-data">
@@ -7,7 +9,7 @@
                 <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
             </div>-->
             <div class="form-group">
-                <label for="exampleFormControlSelect1">Выберите категорию</label>
+                <label for="exampleFormControlSelect1"></label>
                 <select class="form-control" id="exampleFormControlSelect1" data-categorie="categories" disabled name = 'categories_id'>
                     <?php if(isset($params['categories'])) :?>
                             <?php if(isset($params['order'])) :?>
@@ -21,21 +23,21 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Наименование</label>
+                <label for="exampleInputEmail1"></label>
                     <?php if(isset($params['order'])) :?>
                             <input readonly type="text" value="<?=$params['order']['item']?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Наименование" name = 'item'>
 
                     <?php endif; ?>
             </div>
             <div class="form-group">
-                <label for="exampleFormControlTextarea1">Описания состояния</label>
+                <label for="exampleFormControlTextarea1"></label>
                 <?php if(isset($params['order']['description'])) :?>
                     <textarea class="form-control" readonly id="exampleFormControlTextarea1" rows="3" placeholder="Описания состояния" name='description'><?=$params['order']['description']?></textarea>
 
                 <?php endif; ?>
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Запрос скидки</label>
+                <label for="exampleInputEmail1"></label>
                 <?php if(isset($params['order']['discount'])) :?>
                     <input type="number" readonly value="<?=$params['order']['discount']?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Запрос скидки" name='discount'>
 
@@ -58,7 +60,7 @@
             <div class="custom text-center"> <p> Ответ </p></div>
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Выберите статус</label>
-                <select class="form-control" id="exampleFormControlSelect1" data-categorie="categories" disabled name = 'status_id'>
+                <select class="form-control background" id="exampleFormControlSelect1" data-categorie="categories" disabled name = 'status_id'>
                     <?php if(isset($params['order'])) :?>
                         <?php foreach ($params['option_status'] as $status):?>
                             <?php if($status['id'] == $params['order']['status_id']):?>
@@ -71,14 +73,20 @@
 
             <div class="form-group">
                 <label for="exampleInputEmail1">Трейд-ин</label>
-                <?php if(isset($params['order']['sum1'])) :?>
-                    <input type="number" disabled value="<?=$params['order']['sum1']?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Трейд-ин" name='sum1'>
+                <?php if(isset($params['order']['sum1']) and $params['order']['sum1']) :?>
+                    <input type="number" disabled value="<?=$params['order']['sum1']?>" class=" background form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Трейд-ин" name='sum1'>
+                <?php else: ?>
+                    <input type="number" disabled value="" class="  form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Трейд-ин" name=''>
+
                 <?php endif; ?>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Наличка</label>
-                <?php if(isset($params['order']['sum2'])) :?>
-                    <input type="number" disabled value="<?=$params['order']['sum2']?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Наличка" name='sum2'>
+                <?php if(isset($params['order']['sum2']) and $params['order']['sum1']) :?>
+                    <input type="number" disabled value="<?=$params['order']['sum2']?>" class="background form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Наличка" name='sum2'>
+                <?php else: ?>
+                    <input type="number" disabled value="" class="  form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Наличка" name=''>
+
                 <?php endif; ?>
             </div>
 
@@ -94,9 +102,9 @@
                     <label for="exampleFormControlSelect1">Запрос на проверку</label>
 
                         <?php if(isset($params['order']['need_check']) and $params['order']['need_check']) :?>
-                            <input readonly value="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Да" name='check'>
+                            <input readonly value="Да" class="input form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Да" name='check'>
                         <?php else: ?>
-                            <input readonly value="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Нет" name='check'>
+                            <input readonly value="Нет" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Нет" name='check'>
                         <?php endif; ?>
 
                 </div>
@@ -122,7 +130,7 @@
                     </div>
                 </div>
                 <div class="responsible">
-                    <p>Ответсвенный: <span>Иванов ИИ (анна тип)</span></p>
+                    <p>Ответсвенный: <span>Управляющий менеджер</span></p>
                 </div>
 
             </div>
@@ -130,14 +138,14 @@
 
             <div class="form-group">
                 <label for="exampleInputEmail1">Трейд-ин</label>
-                <?php if(isset($params['order']['sum1'])) :?>
-                    <input type="number" disabled value="<?=$params['order']['sum1']?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Запрос скидки" name='sum1'>
+                <?php if(isset($params['order']['sum1']) and isset($params['order']['status_id']) and $params['order']['status_id'] == 2) :?>
+                    <input type="number" readonly value="<?=$params['order']['sum1']?>" class="green form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Запрос скидки" name=''>
                 <?php endif; ?>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Наличка</label>
-                <?php if(isset($params['order']['sum2'])) :?>
-                    <input type="number" disabled value="<?=$params['order']['sum2']?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Запрос скидки" name='sum2'>
+                <?php if(isset($params['order']['sum2']) and isset($params['order']['status_id']) and $params['order']['status_id'] == 2) :?>
+                    <input type="number" readonly value="<?=$params['order']['sum2']?>" class="green form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Запрос скидки" name=''>
                 <?php endif; ?>
             </div>
 

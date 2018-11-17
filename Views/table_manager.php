@@ -1,10 +1,10 @@
 
 <div class="table-responsive">
-    <div class="d-flex justify-content-center"><a href="/" class="btn btn-primary" href="#" role="button"> Создать заказ</a></div>
+    <div class="d-flex justify-content-center"><a href="/" class="btn btn-primary" href="#" role="button"> Создать Запрос</a></div>
     <table class="table table-striped">
         <thead>
         <tr>
-            <th scope="col">Заказ</th>
+            <th scope="col">Запрос</th>
             <th scope="col">Статус</th>
             <th scope="col">Дата</th>
             <th scope="col">Модель</th>
@@ -14,9 +14,16 @@
         </thead>
         <tbody>
         <?php foreach ($params['orders'] as $order) :?>
+            <?php if($order['status_id'] != 2){
+                $order['sum1'] = '';
+                $order['sum2'] = '';
+                $style = 'orange';
+            }else{
+                $style = 'green';
+            } ?>
         <tr>
             <th scope="row"><a href="/manager/open/<?=$order['id']?>"><?=$order['id']?></a></th>
-            <td><?=$order['status']?></td>
+            <td class="<?=$style?>" ><?=$order['status']?></td>
             <td><?=$this->date_format($order['date']);?></td>
             <td><?=$order['item']?></td>
             <td><?=$order['sum1']?></td>

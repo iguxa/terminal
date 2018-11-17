@@ -7,7 +7,7 @@
                 <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
             </div>-->
             <div class="form-group">
-                <label for="exampleFormControlSelect1">Выберите категорию</label>
+                <label for="exampleFormControlSelect1"></label>
                 <select class="form-control" id="exampleFormControlSelect1" data-categorie="categories" name = 'categories_id'>
                     <?php if(isset($params['categories'])) :?>
                                    <?php foreach ($params['categories'] as $categories):?>
@@ -17,21 +17,21 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Наименование</label>
+                <label for="exampleInputEmail1"></label>
                             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Наименование" name = 'item'>
             </div>
             <div class="form-group">
-                <label for="exampleFormControlTextarea1">Описания состояния</label>
+                <label for="exampleFormControlTextarea1"> </label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Описания состояния" name='description'></textarea>
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Запрос скидки</label>
+                <label for="exampleInputEmail1"> </label>
                     <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Запрос скидки" name='discount'>
             </div>
             <div class="form-group">
-                <label for="exampleFormControlFile1">Загрузить фото</label>
+                <label for="exampleFormControlFile1"></label>
                     <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
-                    <input type="file" class="form-control-file" id="exampleFormControlFile1" name="array[]" multiple accept="image/*,image/jpeg">
+                    <input type="file" class="form-control-file" placeholder="Загрузить фото" id="exampleFormControlFile1" name="array[]" multiple accept="image/*,image/jpeg">
             </div>
             <div class="custom text-center"> <p> Ответ </p></div>
             <div class="form-group">
@@ -68,7 +68,7 @@
                     </div>
                 </div>
                 <div class="responsible">
-                    <p>Ответсвенный: <span>Иванов ИИ (анна тип)</span></p>
+                    <p>Ответсвенный: <span>Управляющий менеджер</span></p>
                 </div>
 
             </div>

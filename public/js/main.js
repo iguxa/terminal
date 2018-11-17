@@ -20,7 +20,7 @@ var fn=function(){
                 }
                 if(text.indexOf(arrays[i]['orders_id']) == -1){
                     text.push(arrays[i]['orders_id']);
-                    link.push("<a class='link' href='/"+ position +"/open/" + arrays[i]['orders_id'] +"'> Заказ " +arrays[i]['orders_id'] + "</a>");
+                    link.push("<a class='link' href='/"+ position +"/open/" + arrays[i]['orders_id'] +"'> Запрос " +arrays[i]['orders_id'] + "</a>");
 
                 }
                 $(".ccc1").html(link.join(' '));
@@ -28,7 +28,7 @@ var fn=function(){
             console.log(arrays);
         }
     });
-    setTimeout(arguments.callee,2000);
+    setTimeout(arguments.callee,30000);
 };
 setTimeout( fn,1000 );
 function soundClick() {

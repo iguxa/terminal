@@ -74,7 +74,7 @@ class Orders_Model extends Db
     }
     public function getOrders()
     {
-        $sql = "SELECT orders.id,orders.date,orders.discount,orders.item,orders.description,orders.sum1,orders.sum2,status.status FROM $this->db_name.$this->tb_name
+        $sql = "SELECT orders.id, orders.status_id,orders.date,orders.discount,orders.item,orders.description,orders.sum1,orders.sum2,status.status FROM $this->db_name.$this->tb_name
                 JOIN status on orders.status_id=status.id order by orders.id desc ";
         $sql = $this->limit($sql);
         $result = $this->getPdo($sql)->fetchAll();

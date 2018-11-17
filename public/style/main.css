@@ -52,3 +52,25 @@
 .trigger_delete{
     margin-top: 5%;
 }
+.input{
+    color: red;
+    background: aliceblue !important;
+}
+.background{
+    background: aliceblue !important;
+}
+.green{
+    background-color: green !important;
+    color: black;
+}
+.orange{
+    background-color: orange !important;
+    color: black;
+}
+.form-group{
+    margin: 0 !important;
+    line-height: 1;
+}
+label{
+    margin: 0 !important;
+}
