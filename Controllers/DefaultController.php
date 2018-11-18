@@ -53,9 +53,11 @@ class DefaultController extends Controller
     {
         $orders_model = Orders_Model::getInstance();
         $orders = $orders_model->getOrders();
+        $total = $orders_model->getTotalByStatus();
         $links = $orders_model->links;
         $data['orders'] = $orders;
         $data['links'] = $links;
+        $data['total'] = $total;
         return $this->render('table_manager', $data);
     }
     public function actionOpen($id)

@@ -22,6 +22,7 @@
             $style_sum2 = '';
             if($order['status_id'] != 2){
                 $style = 'orange';
+                $order['sum1'] = $order['sum2'] = '';
             }
             if ($order['sum1']) {
                 $style_sum1 = 'green';
@@ -45,6 +46,17 @@
             </tr>
         <?php endforeach; ?>
         </tbody>
+        <tfoot>
+        <tfoot >
+        <tr>
+            <th scope="col">Запрос</th>
+            <th scope="col">Статус</th>
+            <th scope="col">Дата</th>
+            <th scope="col">Модель</th>
+            <th scope="col"><?=$params['total']['sum1']?></th>
+            <th scope="col"><?=$params['total']['sum2']?></th>
+        </tr>
+        </tfoot>
     </table>
 </div>
 <div class="paginator d-flex justify-content-center">
