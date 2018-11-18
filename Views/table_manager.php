@@ -25,9 +25,9 @@
             $style ='';
             $style_sum1 = '';
             $style_sum2 = '';
-
             if($order['status_id'] != 2){
                 $style = 'orange';
+                $order['sum1'] = $order['sum2'] = '';
             }
             if ($order['sum1']) {
                 $style_sum1 = 'green';
