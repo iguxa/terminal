@@ -1,6 +1,10 @@
 
 <div class="table-responsive">
-    <div class="d-flex justify-content-center"><a href="/" class="btn btn-primary" href="#" role="button"> Создать Запрос</a></div>
+    <div class="d-flex justify-content-center custom_padding">
+        <a href="/" class="btn btn-primary" href="#" role="button"> Создать Запрос</a>
+        <a href="/pay" class="btn btn-primary" href="#" role="button"> Запросить Платеж</a>
+
+    </div>
     <table class="table table-striped">
         <thead>
         <tr>
@@ -38,7 +42,7 @@
 
             ?>
             <tr>
-                <th scope="row"><a href="/manager/open/<?=$order['id']?>"><?=$order['id']?></a></th>
+                <th scope="row"><a href="/manager/<?=$order['type_link']?>/<?=$order['id']?>"><?=$order['id']?></a></th>
                 <td class="<?=$style?>" ><?=$order['status']?></td>
                 <td><?=$this->date_format($order['date']);?></td>
                 <td><?=$order['item']?></td>

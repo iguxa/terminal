@@ -11,7 +11,7 @@ class Db
 {
     use SingletonTrait;
     //protected static $_instance;
-    protected $connection;
+    public $connection;
     protected $db_name;
     protected $status;
     public $db_config;
@@ -77,6 +77,26 @@ class Db
         $sql = "UPDATE $this->db_name.$this->tb_name SET ".$sql;
         $params_new[$value_id] = $key_id;
         return $this->Execute($sql,$params_new);
+    }
+    public function Insert(array $params)
+    {
+        $params_count = count($params);
+        $counter = 0;
+        $fields = '';
+        $values = '';
+        foreach ($params as $key => $param){
+            $fields .= ' , '.$key;
+            $values .= ' , :'.$key;
+            if(++$counter == $params_count){
+                $values = trim($values, ', ');
+                $values = '( '.$values.' )';
+                $fields = trim($fields, ', ');
+                $fields = '( '.$fields.' )';
+                break;
+            }
+        };
+        $sql = "INSERT INTO $this->db_name.$this->tb_name  $fields VALUES  $values";
+        return $this->Execute($sql,$params);
     }
     /*public function getCategories(){
         $sql = "SELECT * FROM $this->db_name.categories;";

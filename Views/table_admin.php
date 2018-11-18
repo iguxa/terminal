@@ -36,7 +36,7 @@
 
             ?>
             <tr>
-                <th scope="row"><a href="/admin/open/<?=$order['id']?>"><?=$order['id']?></a></th>
+                <th scope="row"><a href="/admin/<?=$order['type_link']?>/<?=$order['id']?>"><?=$order['id']?></a></th>
                 <td class="<?=$style?>" ><?=$order['status']?></td>
                 <td><?=$this->date_format($order['date']);?></td>
                 <td><?=$order['item']?></td>

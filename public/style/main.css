@@ -78,3 +78,6 @@
 label{
     margin: 0 !important;
 }
+.custom_padding a{
+    margin: 1%;
+}

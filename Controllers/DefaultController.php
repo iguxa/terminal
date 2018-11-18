@@ -25,7 +25,6 @@ class DefaultController extends Controller
         $params['categories'] = $categories;
         $params['users'] = $users;
         $params['status'] = $status;
-        $this->layoutFile=('../Views/bootstrap.php');
         return $this->render('form',$params);
     }
     public function actionImage()
@@ -48,8 +47,6 @@ class DefaultController extends Controller
         if($result){
             header('Location:/manager');
         }
-        //Db::getModel('orders');
-        //Db::getModel('orders');
 
     }
     public function actionManager()
@@ -63,15 +60,9 @@ class DefaultController extends Controller
     }
     public function actionOpen($id)
     {
-        //echo $id;
-        // $this->errors_list = 'проверка,хотя';
         $params = Orders_Model::getInstance()->getOrderById($id);
         $params['form_action'] = '/admin_form';
         $params['categories'] = Categories_Model::getInstance()->getCategories();
-        //$users = Users_Models::getInstance()->getUsers();
-        //$chats = Chats_Model::getInstance()->GetChats($id);
-        //$orders['users'] = $users;
-        //$orders['chats'] = $chats;
         return $this->render('manager', $params);
     }
 
@@ -96,11 +87,7 @@ class DefaultController extends Controller
     public function actionManager_form()
     {
         $categories = Categories_Model::getInstance()->getCategories();
-        //$users = Users_Models::getInstance()->getUsers();
-        //$status = Status_Model::getInstance()->GetStatusList();
         $params['categories'] = $categories;
-        //$params['users'] = $users;
-        //$params['status'] = $status;
         return $this->render('create_order',$params);
     }
     public function actionForm_fill()
@@ -133,13 +120,9 @@ class DefaultController extends Controller
         unset($request['bot_check']);
 
         $params = array(
-            //'status_id' => $request['status_id'],
-           // 'sum1' => $request['sum1'],
-           // 'sum2' => $request['sum2'],
             'users_id' => $request['users_id'],
             'manager_comment'=>$request['manager_comment'],
             'manager_result_test'=>$request['manager_result_test'],
-           // 'need_check'=>  $request['need_check'],
         );
         $id['key'] = $request['orders_id'];
         $id['value'] = 'id';
@@ -160,5 +143,40 @@ class DefaultController extends Controller
         }
         Triggers_Models::getInstance($orders_id)->deleteTrigger();
 
+    }
+    public function actionPay()
+    {
+        return $this->render('pay');
+    }
+    public function actionPay_form()
+    {
+        $request = $_POST ?: null;
+        if(!$request or $request['bot_check'] or !$request['item']){
+            return Exeption::getInstance()->error404();
+        }
+        unset($request['bot_check']);
+        unset($request['MAX_FILE_SIZE']);
+        $params = [
+            'item' => $request['item'],
+            'description' => $request['description'],
+            'discount' => $request['discount'],
+            'users_id' => $request['users_id'],
+            'categories_id' => $request['categories_id'],
+            'type_link' => $request['type_link'],
+        ];
+        $result = Orders_Model::getInstance();
+         $result->Insert($params);
+        $id = $result->connection->lastInsertId();
+        Triggers_Models::getInstance($id)->Trigger();
+        if(isset($result) and $result){
+            header('Location:/manager');
+        }else{
+            return Exeption::getInstance()->error404('ошибка в создании');
+        }
+    }
+    public function actionPay_open($id)
+    {
+        $params = Orders_Model::getInstance()->getOrderById($id);
+        return $this->render('manager_pay', $params);
     }
 }

@@ -40,8 +40,8 @@ class Orders_Model extends Db
     public function createOrder()
     {
         $request = $this->request;
-        $sql = "INSERT INTO $this->db_name.$this->tb_name (users_id, categories_id, item,description,discount,sum1,sum2,manager_comment)
-                VALUES (:users_id, :categories_id, :item,:description,:discount,:sum1,:sum2,:manager_comment);";
+        $sql = "INSERT INTO $this->db_name.$this->tb_name (users_id, categories_id, item,description,discount,sum1,sum2,manager_comment,type_link)
+                VALUES (:users_id, :categories_id, :item,:description,:discount,:sum1,:sum2,:manager_comment,:type_link);";
         $params = array(
             'users_id' => $request['users_id'],
             'categories_id' => $request['categories_id'],
@@ -51,6 +51,7 @@ class Orders_Model extends Db
             'sum1' => $request['sum1'],
             'sum2' => $request['sum2'],
             'manager_comment' => $request['manager_comment'],
+            'type_link' => $request['type_link'],
             );
 
         $result = $this->Execute($sql,$params);
@@ -74,7 +75,7 @@ class Orders_Model extends Db
     }
     public function getOrders()
     {
-        $sql = "SELECT orders.id, orders.status_id,orders.date,orders.discount,orders.item,orders.description,orders.sum1,orders.sum2,status.status FROM $this->db_name.$this->tb_name
+        $sql = "SELECT orders.id,orders.type_link, orders.status_id,orders.date,orders.discount,orders.item,orders.description,orders.sum1,orders.sum2,status.status FROM $this->db_name.$this->tb_name
                 JOIN status on orders.status_id=status.id order by orders.id desc ";
         $sql = $this->limit($sql);
         $result = $this->getPdo($sql)->fetchAll();
@@ -142,7 +143,6 @@ class Orders_Model extends Db
         }
         $this->links = $links ?? null;
         return $sql."LIMIT $start,$limit";
-
     }
 
 }

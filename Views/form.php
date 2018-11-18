@@ -73,6 +73,7 @@
             </div>
         </div>
 
+        <input type="hidden" name="type" value="open">
 
         <input type="submit" class="btn btn-success waves-effect">
     </form>

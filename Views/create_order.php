@@ -86,6 +86,7 @@
 
             <input type="text" name="bot_check" class="d-none" value="">
             <input type="hidden" name="users_id" value="2">
+                <input type="hidden" name="type_link" value="open">
 
 
             <input type="submit" class="btn btn-success waves-effect">

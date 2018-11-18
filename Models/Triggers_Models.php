@@ -69,11 +69,12 @@ class Triggers_Models extends Db
                 'id' => $this->trigger_id['id'],
                 );
         }else{
-            $sql = "INSERT INTO $this->db_name.$this->tb_name (users_id,orders_id)
-                VALUES (:users_id,:orders_id);";
+            $sql = "INSERT INTO $this->db_name.$this->tb_name (users_id,orders_id,type_link)
+                VALUES (:users_id,:orders_id,:type_link);";
             $params = array(
                 'users_id' => $this->order['users_id'],
                 'orders_id' => $this->order['id'],
+                'type_link' => $this->order['type_link'],
                 );
         }
         $this->Execute($sql,$params);

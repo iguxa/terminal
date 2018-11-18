@@ -20,7 +20,7 @@ var fn=function(){
                 }
                 if(text.indexOf(arrays[i]['orders_id']) == -1){
                     text.push(arrays[i]['orders_id']);
-                    link.push("<a class='link' href='/"+ position +"/open/" + arrays[i]['orders_id'] +"'> Запрос " +arrays[i]['orders_id'] + "</a>");
+                    link.push("<a class='link' href='/"+ position +"/"+ arrays[i]['type_link']+"/" + arrays[i]['orders_id'] +"'> Запрос " +arrays[i]['orders_id'] + "</a>");
 
                 }
                 $(".ccc1").html(link.join(' '));
