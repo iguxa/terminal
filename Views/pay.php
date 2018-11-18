@@ -33,7 +33,7 @@
             <input type="text" name="bot_check" class="d-none" value="">
             <div class="custom text-center"> <p>Результат</p></div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Трейд-ин</label>
+                <label for="exampleInputEmail1">Наличка</label>
                 <?php if(isset($params['order']['sum2']) and $params['order']['sum2']) :?>
                         <input type="number" disabled readonly value="<?=$params['order']['sum2']?>" class="green form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Результат" name=''>
                     <?php else : ?>
