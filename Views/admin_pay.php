@@ -28,9 +28,8 @@
             <div class="custom text-center"> <p>Результат</p></div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Наличка</label>
-                <?php if(isset($params['order']['sum2'])) :?>
                     <input type="number" value="<?=$params['order']['sum2']?>" class=" form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Результат" name='sum2'>
-                <?php endif; ?>
+
             </div>
             <input type="hidden" name="users_id" value="1">
             <input type="hidden" name="orders_id" value="<?=$params['order']['id']?>">
