@@ -164,11 +164,13 @@
             <input type="text" name="bot_check" class="d-none" value="">
                 <input type="hidden" name="users_id" value="2"><!--отсылаем на админа-->
                 <input type="hidden"  class="orders_id" name="orders_id" value=" <?php echo $params['order']['id'] ?? '' ?>">
-            <input type="submit" class="btn btn-success waves-effect">
-        </form>
+
         <?php if(isset($params['order']['status_id']) and $params['order']['status_id'] == 2):?>
             <a class="btn btn-primary btn-success trigger_delete" href="/manager" role="button">Отключить уведомления по заказу <?=$params['order']['id']?></a>
-        <?php endif; ?>
+        <?php else: ?>
+            <input type="submit" class="btn btn-success waves-effect">
 
+        <?php endif; ?>
+        </form>
     </div>
 </div>
