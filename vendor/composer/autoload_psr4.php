@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'views\\' => array($baseDir . '/views'),
     'components\\' => array($baseDir . '/components'),
+    'TelegramBot\\Api\\' => array($vendorDir . '/telegram-bot/api/src'),
     'Models\\' => array($baseDir . '/Models'),
     'Controllers\\' => array($baseDir . '/Controllers'),
     'App\\' => array($baseDir . '/App'),

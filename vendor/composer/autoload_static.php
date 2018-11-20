@@ -15,6 +15,10 @@ class ComposerStaticInit3dee7e39f379865f42016a118747ad2b
         array (
             'components\\' => 11,
         ),
+        'T' => 
+        array (
+            'TelegramBot\\Api\\' => 16,
+        ),
         'M' => 
         array (
             'Models\\' => 7,
@@ -37,6 +41,10 @@ class ComposerStaticInit3dee7e39f379865f42016a118747ad2b
         'components\\' => 
         array (
             0 => __DIR__ . '/../..' . '/components',
+        ),
+        'TelegramBot\\Api\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/telegram-bot/api/src',
         ),
         'Models\\' => 
         array (

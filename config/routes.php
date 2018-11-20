@@ -1,5 +1,6 @@
 <?php
 return array(
+    'telegram'=>'telegram/runTelegram',
 
 
     'manager/form_fill'=>'default/form_fill',
